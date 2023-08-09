@@ -1,0 +1,141 @@
+﻿@{
+    Layout = "/Areas/Admin/Views/shared/layout.cshtml";
+}
+@using QlBanOpDaDienThoai.Models
+@using X.PagedList.Mvc.Core
+@using System.IO
+@model X.PagedList.IPagedList<Product>
+
+@functions {
+    Net20ProjectContext db = new Net20ProjectContext();
+    public string GetCategories(int? product_id)
+    {
+        var categories = from product in db.Products
+                         join category_product in db.CategoriesProducts
+        on product.Id equals category_product.ProductId
+                         join category in db.Categories
+        on category_product.CategoryId equals category.Id
+                         where product.Id == product_id
+                         select category;
+        string str = "";
+        foreach (var item in categories)
+        {
+            str += "<div>" + item.Name + "</div>";
+        }
+        return str;
+
+
+    }
+    public string GetTag(int? product_id)
+    {
+        var tags = from product in db.Products
+                   join tag_product in db.TagsProducts
+        on product.Id equals tag_product.ProductId
+                   join tag in db.Tags
+        on tag_product.TagId equals tag.Id
+                   where product.Id == product_id
+                   select tag;
+        string str = "";
+        foreach (var item in tags)
+        {
+            str += "<div>" + item.Name + "</div>";
+        }
+        return str;
+    }
+}
+
+
+<div class="card-body">
+    <div class="table-responsive product-table">
+        <div id="basic-1_wrapper" class="dataTables_wrapper no-footer">
+
+            <div class="dataTables_length" id="basic-1_length"><label>Show <select name="basic-1_length" aria-controls="basic-1" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div><div id="basic-1_filter" class="dataTables_filter">
+                @*Search Product*@
+                <label>Search:
+                <input type="search" id="seachProduct" placeholder="" aria-controls="basic-1">
+                <button onclick="location.href='/Admin/Products/SearchProducts?key='+document.getElementById('seachProduct').value;" >Search</button>
+                </label
+
+                @*Search Product*@
+                ></div><table class="display dataTable no-footer" id="search">
+                <button><a style="color:white" href="/admin/products/create">Thêm sản phẩm</a></button>
+                <thead style="background-color: cadetblue;">
+                    <tr role="row">
+                        <th class="sorting_asc" tabindex="0" aria-controls="basic-1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Image: activate to sort column descending" style="width: 150px;">Image</th>
+                        <th class="sorting" tabindex="0" aria-controls="basic-1" rowspan="1" colspan="1" aria-label="Details: activate to sort column ascending" style="width: 308px;">Name</th>
+                        <th class="sorting" tabindex="0" aria-controls="basic-1" rowspan="1" colspan="1" aria-label="Amount: activate to sort column ascending" style="width: 150px;">Category</th>
+                        <th class="sorting" tabindex="0" aria-controls="basic-1" rowspan="1" colspan="1" aria-label="Stock: activate to sort column ascending" style="width: 150px;">Tag</th>
+                        <th class="sorting" tabindex="0" aria-controls="basic-1" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 150px;">Discount</th>
+                        <th class="sorting" tabindex="0" aria-controls="basic-1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 150px;">Price</th>
+
+                        <th class="sorting" tabindex="0" aria-controls="basic-1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 150px;">Hot</th>
+
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr role="row" class="odd">
+                            <td class="sorting_1"><a href="product-page.html"><img style="height: 75px;" src="~/Upload/Products/@item.Photo" alt=""></a></td>
+                            <td>
+                                <a href="product-page.html">
+                                    @*   <h6> Red Lipstick </h6>*@
+                                </a><span>@item.Name</span>
+                            </td>
+                            <td>@Html.Raw(GetCategories(item.Id))</td>
+                            <td>@Html.Raw(GetTag(item.Id))</td>
+
+
+                            <td>
+                                @if (item.Discount > 0)
+                                {
+                                    <text>@item.Discount %</text>
+                                }
+                                else
+                                {
+
+                                    <text> </text>
+                                }
+                            </td>
+                            <td>@item.Price</td>
+                            <td style="color:red">
+                                @if (item.Hot == 1)
+                                {
+                                    <text>✔</text>
+                                }
+                                else
+                                {
+
+                                    <text> </text>
+
+
+                                }
+                            </td>
+
+                            <td><button class="btn btn-primary btn-xs" type="button" data-original-title="btn btn-danger btn-xs" title=""> <a style="color: white;" href="/Admin/Products/Update/@item.Id">Edit</a> </button></td>
+
+                            <td>
+                                <button class="btn btn-danger btn-xs" type="button" data-original-title="btn btn-danger btn-xs" title=""><a style="color: white;" onclick="return window.confirm('Bạn có muốn xóa sản phẩm này không?')" href="/admin/products/delete/@item.Id">Delete</a></button>
+
+                            </td>
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+        <div>@Html.PagedListPager(Model,p=>Url.Action("index","Products",new {p}))</div>
+        </div>
+    </div>
+</div>
+<style>
+    .pagination li{
+            border: 1px solid green;
+    border-radius: 15px;
+    width: 22px;
+    text-align: center;
+    margin:5px
+    }
+</style>

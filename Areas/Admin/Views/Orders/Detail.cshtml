@@ -1,0 +1,66 @@
+﻿@{
+    //load file Layout.cshtml vao day
+    Layout = "~/Areas/Admin/Views/Shared/Layout.cshtml";
+}
+@using QlBanOpDaDienThoai.Models
+@using System.IO
+
+@functions{
+    public Net20ProjectContext db = new Net20ProjectContext();
+    public Customer GetCustomers(int customer_id)
+    {
+        Customer record = db.Customers.Where(item => item.Id == customer_id).FirstOrDefault();
+        return record;
+    }
+    public Order getOrders(int order_id)
+    {
+        Order record = db.Orders.Where(item => item.Id == order_id).FirstOrDefault();
+        return record;
+    }
+    public Product getProducts(int product_id)
+    {
+        Product record = db.Products.Where(item => item.Id == product_id).FirstOrDefault();
+        return record;
+    }
+
+}
+<div class="col-md-12">
+    @{
+        Order recordOrders = getOrders(ViewBag.OrderId);
+    }
+    <div style="margin-bottom:10px;">
+        <a href="/Admin/Orders" class="btn btn-danger">Quay lại</a>&nbsp;&nbsp;
+        @if (recordOrders.Status == 0)
+        {
+            <a href="/Admin/Orders/Delivery/@ViewBag.OrderId" class="btn btn-primary">Giao hàng</a>
+        }
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">Order detail</div>
+        <div class="panel-body">
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th style="width:100px;">Photo</th>
+                    <th>Name</th>
+                    <th style="width:100px;">Price</th>
+                    <th style="width:100px;">Quantity</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    Product recordProducts = getProducts(item.ProductId);
+                    <tr>
+                        <td>
+                            @if (recordProducts.Photo != null && File.Exists(Directory.GetCurrentDirectory() + "\\wwwroot\\Upload\\Products\\" + recordProducts.Photo))
+                            {
+                                <img src="~/Upload/Products/@recordProducts.Photo" style="width:100px;" />
+                            }
+                        </td>
+                        <td>@recordProducts.Name</td>
+                        <td>@string.Format("{0:#,#.}", (recordProducts.Price * recordProducts.Discount) / 100) đ</td>
+                        <td style="text-align:center;">@item.Quantity</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "~/Areas/Admin/views/shared/layout.cshtml";
+}
+@model QlBanOpDaDienThoai.Models.Tag;
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header pb-0">
+                <h5>Basic form control</h5>
+            </div>
+            <form method="post" action="@ViewBag.action" class="form theme-form">
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label class="form-label" for="exampleFormControlInput1">Tag name</label>
+                            <input class="form-control" name="name" id="exampleFormControlInput1" type="text" value="@if(Model!=null){
+                            <text>@Model.Name</text>
+                            }"  >
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-end">
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                    <button class="btn btn-light" ><a href="/admin/Tags/Index">Cancle</a></button>
+
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

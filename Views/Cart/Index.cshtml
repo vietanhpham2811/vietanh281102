@@ -1,0 +1,149 @@
+﻿@{
+    //load file Layout2.cshtml vào đây
+    Layout = "~/Views/Shared/Layout1.cshtml";
+}
+@{
+    List<Item> cart= ViewBag.cart as List<Item>;
+}
+@using QlBanOpDaDienThoai.Models;
+
+
+<link rel="stylesheet" href="~/layoutBaiTap/cart.css">
+<div class="sub-link-product col-xs-12">
+    <a href="home.html" style="color: black;font-size: 12px;">Trang chủ</a><i class="bi bi-chevron-right"></i>
+    <h style="color:rgb(232, 24, 84) ;">Giỏ hàng</h>
+</div>
+<div class="cart-body">
+    <div class="title">
+        <h3>GIỎ HÀNG</h3>
+    </div>
+
+
+    <!-- cart-product -->
+    @if (cart != null)
+    {
+        <div class="cart-product">
+            <form style="width: 804px;margin-right: 50px;" id="frm" method="post" action="/Cart/Update">
+                <div style="overflow: scroll; margin: 0px;" class="cart-product-left">
+                    @foreach (var item in cart)
+                    {
+
+                        <!-- product 1 -->
+
+                        <div class="product-left">
+                            <div class="image-prd"> <img src="~/Upload/Products/@item.ProductRecord.Photo" alt=""></div>
+                            <div class="sub-product">
+                                <ul style="width: 160px;">
+                                    <li style="font-weight: bold ;">@item.ProductRecord.Name</li>
+                                    <li style="cursor: pointer;color:rgb(232, 24, 84) ;"> <a onclick="return window.confirm('Are you sure?')" style="cursor: pointer;color:rgb(232, 24, 84) ;" href="cart/remove/@item.ProductRecord.Id">Xóa</a> </li>
+                                </ul>
+
+                                <div class="box-price">
+                                    <p style="text-decoration: line-through;text-decoration-color: red; color:#8a8a8a">@item.ProductRecord.Price đ</p>
+                                </div>
+                                <div class="box-price">
+                                    <p>$@string.Format("{0:#,#.}", item.ProductRecord.Price - (item.ProductRecord.Price*item.ProductRecord.Discount)/100)đ</p>
+                                </div>
+                                <div class="sub-quantity" style="margin-top: 13px;margin-left: 20px;">
+                                   
+                                    <input type="number" name="product_@item.ProductRecord.Id" value="@item.Quantity" data-max="120" pattern="[0-9]*" style="width: 32px;height: 25px;padding: 0px;text-align: center;"
+                                           type="text" value="1">
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--end product 1 -->
+                    }
+                </div>
+            </form>
+            <!-- cart-product-left -->
+            <!-- END cart-product-right -->
+            <!-- cart-product-right -->
+            @if (Cart.CartQuantity(Context.Session) > 0)
+            {
+                <div class="cart-product-right">
+                    <div style="width: 318px;" class="sub-price">
+                        <h>Tạm Tính</h>
+                        <div id="sub-price">$@string.Format("{0:#,#.}", Cart.CartTotal(Context.Session))</div>
+                    </div>
+
+                    <div style="width: 318px;" class="price">
+                        <h>Thành Tiền</h>
+                        <div id="price" style=" margin-left: 100px; font-size: 24px;
+                    font-weight: bold;color:rgb(232, 24, 84) ;">
+                            $@string.Format("{0:#,#.}", Cart.CartTotal(Context.Session))
+                        </div>
+                    </div>
+
+
+                    <div style="background-color:white;" class="pay">
+                        <button style=" width: 115px;height: 100%;background-color:rgb(232, 24, 84);border:none;margin-right: 25px;border-radius:5px;">
+                            <a href="#" onclick="document.getElementById('frm').submit();">Cập nhật</a>
+                        </button>
+                        <button style=" width: 115px;height: 100%;background-color:rgb(232, 24, 84) ;border:none;border-radius:5px;">
+                            <a onclick="return window.confirm('Xóa tất cả các sản phẩm trong giỏ hàng của bạn')" href="/Cart/Destroy">Xóa hết Sp</a>
+                        </button>
+                    </div>
+                    <button class="pay">  <a href="/cart/checkout">THANH TOÁN NGAY</a></button>
+
+
+                    <button class="pay"> <a href="/products/category">TIẾP TỤC MUA HÀNG</a> </button>
+                </div>
+            }
+
+            <!-- cart-product-right -->
+
+        </div>
+    }
+
+    <!-- cart-product -->
+
+</div>
+<script>
+    $(document).ready(function () {
+        $("#btnAdd").click(function () {
+            var soluong = $("#quantity").val();
+            var sl = parseInt(soluong);
+            var str = sl + 1;
+            $("#quantity").val(str);
+
+        })
+        $("#btnAdd2").click(function () {
+            var soluong = $("#quantity2").val();
+            var sl = parseInt(soluong);
+            var str = sl + 1;
+            $("#quantity2").val(str);
+        })
+
+        $("#btnMinus").click(function () {
+            var soluong = $("#quantity").val();
+            var sl = parseInt(soluong);
+            if (sl == 0) {
+                return 0;
+            } else { var str = sl - 1; }
+
+            $("#quantity").val(str);
+        })
+
+        $("#btnMinus2").click(function () {
+            var soluong = $("#quantity2").val();
+            var sl = parseInt(soluong);
+            if (sl == 0) {
+                return 0;
+            } else { var str = sl - 1; }
+
+            $("#quantity2").val(str);
+        })
+
+    });
+    setInterval(function () {
+        var so1 = document.getElementById("quantity").value;
+        var so2 = document.getElementById("quantity2").value;
+        var sl1 = parseInt(so1);
+        var sl2 = parseInt(so2);
+        var str = sl1 * 600000 + sl2 * 200000;
+        document.getElementById("price").innerHTML = str;
+        document.getElementById("sub-price").innerHTML = str;
+    });
+</script>

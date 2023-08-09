@@ -1,0 +1,97 @@
+﻿@{
+    //load file Layout.cshtml vao day
+    Layout = "~/Areas/Admin/Views/Shared/Layout.cshtml";
+}
+@* de phan trang thi phai using cac doi tuong sau *@
+@using X.PagedList
+@using X.PagedList.Mvc.Core
+@* doi tuong thao tac file *@
+@using System.IO
+@* nhin thay file MyDbContext *@
+@using QlBanOpDaDienThoai.Models
+@functions {
+    public Net20ProjectContext db = new Net20ProjectContext();
+    public Customer GetCustomers(int _CustomerId)
+    {
+        //lay mot ban ghi
+        Customer record = db.Customers.Where(item => item.Id == _CustomerId).FirstOrDefault();
+        return record != null ? record : new Customer();
+    }
+}
+<div class="col-md-12">
+    <div class="panel panel-primary">
+        <div class="panel-heading">List orders</div>
+        <div class="panel-body">
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Date</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th style="width:150px;"></th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    Customer recordCustomer = GetCustomers(item.CustomerId);
+                    <tr>
+                        <td>@recordCustomer.Name</td>
+                        <td>@recordCustomer.Address</td>
+                        <td>@recordCustomer.Phone</td>
+                        <td>@item.Create.ToString("dd/MM/yyyy")</td>
+                        <td>@string.Format("{0:#,#.}", item.Price) đ</td>
+                        <td>
+                            @if (item.Status == 2)
+                            {
+                                <text><label style="padding:5px" class="label label-warning">Đã hủy đơn hàng</label></text>
+                            }
+                            @if (item.Status == 1)
+                            {
+                                <text><label style="padding:5px" class="label label-danger">Đã giao hàng</label></text>
+                            }
+                            @if (item.Status == 0)
+                            {
+                                <text><label style="padding:5px" class="label label-primary">Chưa giao hàng</label></text>
+                            }
+                        </td>
+                        <td style="text-align:center;">
+                            @if (item.Status == 0)
+                            {
+                                <text><a href="/Admin/Orders/Delivery/@item.Id">Giao hàng</a></text>
+                            }
+                            &nbsp;&nbsp;
+                            <a href="/Admin/Orders/Detail/@item.Id">Chi tiết</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+            <style type="text/css">
+                .pagination li {
+                    margin: 0px 10px 0px 10px;
+                    border: 1px solid black;
+                    border-radius: 10px;
+                    padding: 0px 7px 0px 7px;
+                }
+
+                .pagination {
+                    display: flex;
+                    justify-content: center;
+                    width: 100%;
+                }
+
+            </style>
+            @* ham sau se thuc hien viec hien thi phan trang *@
+            @Html.PagedListPager((IPagedList)Model, p => Url.Action("Index", new { page = p }))
+        </div>
+    </div>
+</div>
+<style>
+    .pagination li {
+        border: 1px solid green;
+        border-radius: 15px;
+        width: 22px;
+        text-align: center;
+        margin: 5px
+    }
+</style>

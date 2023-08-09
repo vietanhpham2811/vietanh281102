@@ -1,0 +1,67 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout1.cshtml";
+}
+@using QlBanOpDaDienThoai.Models;
+@* de phan trang thi phai using cac doi tuong sau *@
+@using X.PagedList
+@using X.PagedList.Mvc.Core
+@* doi tuong thao tac file *@
+@using System.IO
+@* nhin thay file MyDbContext *@
+@using QlBanOpDaDienThoai.Models
+@{
+    List<int> list_wish_list = ViewBag.list_wish_list as List<int>;
+}
+<link rel="stylesheet" href="~/layoutBaiTap/cart.css">
+
+@functions {
+    public Net20ProjectContext db = new Net20ProjectContext();
+    public Product GetProduct(int id)
+    {
+        Product record = db.Products.Where(item => item.Id == id).FirstOrDefault();
+        return record;
+    }
+}
+@if (list_wish_list != null)
+{
+    <div class="cart-product">
+        <div style="overflow: scroll;margin:auto" class="cart-product-left">
+            @foreach (var item in list_wish_list)
+            {
+                var product = GetProduct(item);
+
+
+                <!-- product 1 -->
+
+                <div class="product-left">
+                    <div class="image-prd"> <img src="~/Upload/Products/@product.Photo" alt=""></div>
+                    <div class="sub-product">
+                        <ul style="width: 160px;">
+                            <li style="font-weight: bold ;"></li>
+                            <li style="cursor: pointer;color:rgb(232, 24, 84) ;"> <a onclick="return window.confirm('Are you sure?')" style="cursor: pointer;color:rgb(232, 24, 84) ;" href="/Wishlist/remove/@product.Id">Xóa</a> </li>
+                        </ul>
+
+                        <div class="box-price">
+                            <p style="text-decoration: line-through;text-decoration-color: red; color:#8a8a8a">@product.Price đ</p>
+                        </div>
+                        <div class="box-price">
+                            <p>$@string.Format("{0:#,#.}", product.Price - (product.Price*product.Discount)/100)đ</p>
+                        </div>
+                        @*  <div class="sub-quantity" style="margin-top: 13px;margin-left: 20px;">
+                <button id="btnMinus">-</button>
+                <input id="quantity" style="width: 32px;height: 25px;padding: 0px;text-align: center;"
+                type="text" value="1">
+                <button id="btnAdd">+</button>
+                </div>*@
+                    </div>
+
+                </div>
+                <!--end product 1 -->
+            }
+        </div>
+        <!-- cart-product-left -->
+        <!-- END cart-product-right -->
+
+
+    </div>
+}

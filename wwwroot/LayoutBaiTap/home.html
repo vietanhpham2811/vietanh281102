@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viet Anh</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+ 
+
+  <script src="dalis.js"></script>
+
+</head>
+
+<body style="background-color: white;">
+ <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+ 
+    <!-- start header -->
+    <div class="header">
+        <!-- top header -->
+        <div class="top-header">
+            <div class="sub-top-header"><a href=""><i class="bi bi-facebook"></i></a> <a href=""><i
+                        class="bi bi-twitter"></i></a> <a href=""><i class="bi bi-instagram"></i></a> <a href=""> <i
+                        class="bi bi-google"></i></a> <a href=""> <i class="bi bi-pinterest"></i></a> Chào mừng bạn đến
+                với <a style="text-decoration: none;font-size: 14px;color: rgb(232, 24, 84);font-weight: bold;"
+                    href="">Ant Fashion</a>. Cùng vui mua sắm</div>
+        </div>
+        <!-- end top header -->
+        <!-- center-header -->
+        <div class="center-header">
+            <div class="logo-dalis"> <img src="Image_dalis/logo-dalis150x78.jpg" alt=""></div>
+
+
+            <div class="header-hotline">
+                <div class="hotline-online">
+                    <div><i style="font-size: 30px; color: rgb(3, 145, 253);" class="bi bi-chat-text-fill"> </i> </div>
+                    <div> Hỗ trợ trực tuyến <br> Gọi: <a href="" style="color: rgb(232, 24, 84) ;font-size: 12px;">0123
+                            456 789</a> </div>
+                </div>
+
+                <div class="open-time">
+                    <div><img src="Image_dalis/opentime35x35.png" alt=""></div>
+                    <div style="font-size: 14px;">T2-T7 9.00 - 18.00 <br> <a
+                            style="color: rgb(198, 197, 197) ;font-size: 12px;" href="">Chủ nhật
+                            NGHỈ</a> </div>
+                </div>
+
+            </div>
+
+            <div class="search">
+                <input id="txtSearch" type="search" placeholder="Tìm kiếm sản phẩm " value="">
+                <i onclick="search()" class="bi bi-search"></i>
+            </div>
+            <div class="login"><a href=""><i class="bi bi-person-circle"></i>
+                    <ul class="sub-login">
+                        <li>
+                            <a href="">Đăng Nhập</a>
+                        </li>
+                        <li>
+                            <a href="">Đăng ký</a>
+                        </li>
+                    </ul>
+                </a>
+
+
+
+            </div>
+
+
+        </div>
+        <!-- end-center-header -->
+
+        <!-- start menu -->
+        <div class="menu">
+            <div class="menu-left">
+                <ul>
+                    <li><a href="home.html">TRANG CHỦ</a></li>
+                    <li class="menu-product"><a href="shop.html">SẢN PHẨM<i class="bi bi-chevron-right"></i></a>
+                        <!-- submenu -->
+                        <div class="sub-menu">
+                            <!-- <div> -->
+                            <ul class="sub-menu-left">
+                                <h4 style="font-family: Arial;">LOẠI TRANG SẢN PHẨM</h4>
+                                <li><a href="">Sản phẩm có tab cố đinh</a></li>
+                                <li><a href="">Sản phẩm có khuyến mãi</a></li>
+                                <li><a href="">Sản phẩm ảnh đổi màu</a></li>
+                            </ul>
+
+                            <ul class="sub-menu-right">
+
+                                <h4 style="font-family: Arial;">MIẾNG DÁN DA</h4>
+
+                                <li><a href="">Bản đặc biệt</a></li>
+                                <li><a href="">Apple</a></li>
+                                <li><a href="">SamSung</a></li>
+                                <li><a href="">Blackberry</a></li>
+                               
+                                <li><a href="">Sony</a></li> 
+                                <li><a href="">Laptop</a></li>
+                                 <li><a href="">Nokia</a></li>
+                            </ul>
+                            <!-- </div> -->
+
+                        </div>
+                        <!-- end sub-menu -->
+                    </li>
+                    <li><a href="">BAO DA</a></li>
+                    <li><a href="">VÍ DA & TÚI XÁCH</a></li>
+                    <li><a href="news.html">TẠP CHÍ</a></li>
+                    <li><a href="">LIÊN HỆ</a></li>
+
+                </ul>
+            </div>
+            <div class="menu-right">
+                <ul>
+                    <li><a href="cart.html"><i style="font-size: 25px;" class="bi bi-cart4"></i></a> </li>
+                    <li><a href="cart.html">Giỏ Hàng</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- end menu -->
+    </div>
+    <!-- end header -->
+    <!-- content -->
+    <!-- slideeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee -->
+    <div class="content">
+        <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="Image_dalis/content-img.png" alt=""></div>
+      <div class="swiper-slide"><img src="Image_dalis/content-img2.jpg" alt=""></div>
+     
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      pagination: {
+        el: ".swiper-pagination",
+        type: "progressbar",
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+    </div>
+
+    <!-- end content -->
+
+    <!--Product  -->
+
+    <!-- content product -->
+    <!-- <div class="content-product">
+        <p>Sản phẩm Nổi Bật</p>
+    </div> -->
+    <!-- end content-product -->
+    <!-- hot-product -->
+    <!-- <div class="hot-product">
+        <div class="hot-product-item">
+            <div class="box"><a href=""><img src="Image_dalis/hot-product-item1.jpg" alt=""></a>
+                <ul>
+                    <li>
+                        <a href=""><i class="bi bi-basket"></i></a>
+                    </li>
+                    <li>
+                        <a href=""> <i class="bi bi-search"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sale-hot-product">SALE</div>
+
+            <div class="sub-hot-product-item"><a href="">Bao da điện thoại Samsung Note 8</a></div>
+            <div class="price-hot-product">
+                600.000đ &nbsp; <b
+                    style="text-decoration-line:line-through;font-weight: 100 ;color: rgb(214, 212, 209);">650.000đ</b>
+            </div>
+        </div>
+        <div class="hot-product-item">
+            <--item -->
+            <!-- <div class="box"> <a href=""><img src="Image_dalis/hot-product-item2.jpg" alt=""></a>
+                <ul>
+                    <li>
+                        <a href=""><i class="bi bi-basket"></i></a>
+                    </li>
+                    <li>
+                        <a href=""> <i class="bi bi-search"></i></a>
+                    </li>
+                </ul>
+
+            </div> -->
+            <!-- end-item -->
+            <!-- <div class="sub-hot-product-item"><a href="">Dán da điện thoại Sony Xperi...</a></div>
+            <div class="price-hot-product">
+                Liên Hệ
+            </div>
+        </div>
+        <div class="hot-product-item">
+            <div class="box"> <a href=""><img src="Image_dalis/hot-product-item3.jpg" alt=""></a>
+                <ul>
+                    <li>
+                        <a href=""><i class="bi bi-basket"></i></a>
+                    </li>
+                    <li>
+                        <a href=""> <i class="bi bi-search"></i></a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="sub-hot-product-item"><a href="">Bao da đeo lưng điện thoại dưới 5"</a>
+
+
+            </div>
+            <div class="price-hot-product">
+                500.000đ
+            </div>
+        </div>
+        <div class="hot-product-item">
+            <div class="box"> <a href=""><img src="Image_dalis/hot-product-item4.jpg" alt="">
+                    <ul>
+                        <li>
+                            <a href=""><i class="bi bi-basket"></i></a>
+                        </li>
+                        <li>
+                            <a href=""> <i class="bi bi-search"></i></a>
+                        </li>
+                    </ul>
+                </a></div>
+            <div class="sub-hot-product-item"><a href="">Ví da điện thoại iPhone 7 Plus</a></div>
+            <div class="price-hot-product">
+                600.000đ
+            </div>
+        </div>
+    </div>  -->
+
+
+    <!-- end-hot-product -->
+
+    <!-- banner -->
+    <div class="banner" id="show-img">
+        <ul>
+            <li><a href=""><img src="Image_dalis/banner-item.png" alt=""></a></li>
+            <li><a href=""><img src="Image_dalis/banner-item2.png" alt=""></a></li>
+            <li><a href=""><img src="Image_dalis/banner-item3.png" alt=""></a></li>
+            <li><a href=""><img src="Image_dalis/banner-item4.png" alt=""></a></li>
+        </ul>
+
+    </div>
+    <!-- end banner -->
+
+    <!-- strart category -->
+
+    <div style="width: 1140px;height: 27px; margin: auto;margin-top: 30px;text-align: center;">
+        <h2>DANH MỤC SẢN PHẨM</h2>
+    </div>
+    <!-- start 211 category -->
+    <div class="list-category">
+        <ul>
+            <li><a href="">BAO DA ĐT</a></li>
+            <li><a href="">BAO DA LAPTOP</a></li>
+            <li><a href="">BAO DA MTB</a></li>
+        </ul>
+    </div>
+    <!-- end category -->
+    <!-- product-category -->
+    <!-- category-product-top -->
+    <div class="category-product">
+        <div class="category-product-item">
+            <div class="category-box"><a href=""><img src="Image_dalis/hot-product-item1.jpg" alt=""></a>
+                <ul>
+                    <li>
+                        <a href=""><i class="bi bi-basket"></i></a>
+                    </li>
+                    <li>
+                        <a href=""> <i class="bi bi-search"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sale-category-product">SALE</div>
+
+            <div class="sub-category-product-item"><a href="">Bao da điện thoại Samsung Note 8</a></div>
+            <div class="price-category-product">
+                600.000đ &nbsp; <b>650.000đ</b>
+            </div>
+        </div>
+        <div class="category-product-item">
+            <!-- item -->
+            <div class="category-box"> <a href=""><img src="Image_dalis/hot-product-item2.jpg" alt=""></a>
+                <ul>
+                    <li>
+                        <a href=""><i class="bi bi-basket"></i></a>
+                    </li>
+                    <li>
+                        <a href=""> <i class="bi bi-search"></i></a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- end-item -->
+            <div class="sub-category-product-item"><a href="">Dán da điện thoại Sony Xperi...</a></div>
+            <div class="price-category-product">
+                Liên Hệ
+            </div>
+        </div>
+        <div class="category-product-item">
+            <div class="category-box"> <a href=""><img src="Image_dalis/hot-product-item3.jpg" alt=""></a>
+                <ul>
+                    <li>
+                        <a href=""><i class="bi bi-basket"></i></a>
+                    </li>
+                    <li>
+                        <a href=""> <i class="bi bi-search"></i></a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="sub-category-product-item"><a href="">Bao da đeo lưng điện thoại dưới 5"</a>
+
+
+            </div>
+            <div class="price-category-product">
+                500.000đ
+            </div>
+        </div>
+        <div class="category-product-item">
+            <div class="category-box"> <a href=""><img src="Image_dalis/hot-product-item4.jpg" alt="">
+                    <ul>
+                        <li>
+                            <a href=""><i class="bi bi-basket"></i></a>
+                        </li>
+                        <li>
+                            <a href=""> <i class="bi bi-search"></i></a>
+                        </li>
+                    </ul>
+                </a></div>
+            <div class="sub-category-product-item"><a href="">Ví da điện thoại iPhone 7 Plus</a></div>
+            <div class="price-category-product">
+                600.000đ
+            </div>
+        </div>
+        <div class="category-product-item">
+            <div class="category-box"> <a href=""><img src="Image_dalis/hot-product-item5.jpg" alt="">
+                    <ul>
+                        <li>
+                            <a href=""><i class="bi bi-basket"></i></a>
+                        </li>
+                        <li>
+                            <a href=""> <i class="bi bi-search"></i></a>
+                        </li>
+                    </ul>
+                </a></div>
+            <div class="sub-category-product-item"><a href="">Ví da điện thoại iPhone 7 Plus</a></div>
+            <div class="price-category-product">
+                600.000đ
+            </div>
+        </div>
+
+
+    </div>
+    <!--END category-product-top -->
+
+    <!-- category-product-bottom -->
+    <div class="category-product">
+        <div class="category-product-item">
+            <div class="category-box"><a href=""><img src="Image_dalis/hot-product-item6.jpg" alt=""></a>
+                <ul>
+                    <li>
+                        <a href=""><i class="bi bi-basket"></i></a>
+                    </li>
+                    <li>
+                        <a href=""> <i class="bi bi-search"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="sub-category-product-item"><a href="">Bao da điện thoại Samsung Note 8</a></div>
+            <div class="price-category-product">
+                600.000đ &nbsp; <b>650.000đ</b>
+            </div>
+        </div>
+        <div class="category-product-item">
+            <!-- item -->
+            <div class="category-box"> <a href=""><img src="Image_dalis/hot-product-item7.jpg" alt=""></a>
+                <ul>
+                    <li>
+                        <a href=""><i class="bi bi-basket"></i></a>
+                    </li>
+                    <li>
+                        <a href=""> <i class="bi bi-search"></i></a>
+                    </li>
+                </ul>
+                <div class="sale-category-product">SALE</div>
+            </div>
+            <!-- end-item -->
+            <div class="sub-category-product-item"><a href="">Dán da điện thoại Sony Xperi...</a></div>
+            <div class="price-category-product">
+                Liên Hệ
+            </div>
+        </div>
+        <div class="category-product-item">
+            <div class="category-box"> <a href=""><img src="Image_dalis/hot-product-item8.jpg" alt=""></a>
+                <ul>
+                    <li>
+                        <a href=""><i class="bi bi-basket"></i></a>
+                    </li>
+                    <li>
+                        <a href=""> <i class="bi bi-search"></i></a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="sub-category-product-item"><a href="">Bao da đeo lưng điện thoại dưới 5"</a>
+
+
+            </div>
+            <div class="price-category-product">
+                500.000đ
+            </div>
+        </div>
+        <div class="category-product-item">
+            <div class="category-box"> <a href=""><img src="Image_dalis/hot-product-item9.jpg" alt="">
+                    <ul>
+                        <li>
+                            <a href=""><i class="bi bi-basket"></i></a>
+                        </li>
+                        <li>
+                            <a href=""> <i class="bi bi-search"></i></a>
+                        </li>
+                    </ul>
+                </a></div>
+            <div class="sub-category-product-item"><a href="">Ví da điện thoại iPhone 7 Plus</a></div>
+            <div class="price-category-product">
+                600.000đ
+            </div>
+        </div>
+        <div class="category-product-item">
+            <div class="category-box"> <a href=""><img src="Image_dalis/hot-product-item10.jpg" alt="">
+                    <ul>
+                        <li>
+                            <a href=""><i class="bi bi-basket"></i></a>
+                        </li>
+                        <li>
+                            <a href=""> <i class="bi bi-search"></i></a>
+                        </li>
+                    </ul>
+                </a></div>
+            <div class="sub-category-product-item"><a href="">Ví da điện thoại iPhone 7 Plus</a></div>
+            <div class="price-category-product">
+                600.000đ
+            </div>
+        </div>
+
+
+    </div>
+    <!--END category-product-bottom -->
+
+
+    <!-- end product category -->
+
+
+    <!-- delivery -->
+    <div class="delivery">
+        <div class="delivery-product">
+            <img src="Image_dalis/delivery1.png" alt="">
+        </div>
+        <div class="delivery-product">
+            <img src="Image_dalis/delivery2.png" alt="">
+        </div>
+        <div class="delivery-product">
+            <img src="Image_dalis/delivery3.png" alt="">
+        </div>
+
+
+    </div>
+
+    <!-- end delivery -->
+
+
+
+    <!-- new-product  -->
+    <div class="new-product">
+
+        <!-- new-product-left -->
+        <div class="new-product-left">
+            <div class="content-new-hot">
+                <p>MỚI NHẤT</p>
+                <div class="item-new-product">
+
+
+                   <a href=""><img src="Image_dalis/hot-product-item1.jpg" alt=""></a> 
+                    <div><a href="">Bao da điện thoại Samsung Note 8 <br>
+                            600.000đ <b>650.000đ</b>
+                        </a>
+                        <div><a href=""><i style="font-size: 24px;" class="bi bi-basket"></i></a></div>
+                        <div class="sale-content-new-hot">Sale</div>
+                    </div>
+
+
+
+
+                </div>
+                <div class="item-new-product">
+
+
+                   <a href=""><img src="Image_dalis/hot-product-item2.jpg" alt=""></a> 
+                    <div><a href="">Dán da điện thoại Sony Xperia X<br>
+                            Liên hệ
+                        </a>
+                        <div><a href=""><i style="font-size: 24px;" class="bi bi-basket"></i></a></div>
+
+                    </div>
+
+
+
+                </div>
+                <div class="item-new-product">
+
+
+                  <a href=""><img src="Image_dalis/hot-product-item3.jpg" alt=""></a>  
+                    <div><a href="">Bao da đeo lưng điện thoại duới 5"<br>
+                            500.000đ
+                        </a>
+                        <div><a href=""><i style="font-size: 24px;" class="bi bi-basket"></i></a></div>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            <div class="image-new-hot">
+                <a href=""><img src="Image_dalis/image-content-newhot.jpg" alt=""></a>
+            </div>
+        </div>
+
+        <!--END new-product-left -->
+
+
+
+
+        <!-- new product-right -->
+        <div class="new-product-right">
+            <div class="content-new-hot">
+                <p>XU HƯỚNG</p>
+                <div class="item-new-product">
+
+
+                  <a href=""><img src="Image_dalis/hot-product-item1.jpg" alt=""></a> 
+                    <div><a href="">Bao da điện thoại Samsung Note 8 <br>
+                            600.000đ <b>650.000đ</b>
+                        </a>
+                        <div><a href=""><i style="font-size: 24px;" class="bi bi-basket"></i></a></div>
+                        <div class="sale-content-new-hot">Sale</div>
+                    </div>
+
+
+
+                </div>
+                <div class="item-new-product">
+
+
+                   <a href=""> <img src="Image_dalis/hot-product-item2.jpg" alt=""></a>
+                    <div><a href="">Dán da điện thoại Sony Xperia X<br>
+                            Liên hệ
+                        </a>
+                        <div><a href=""><i style="font-size: 24px;" class="bi bi-basket"></i></a></div>
+
+                    </div>
+
+
+
+                </div>
+                <div class="item-new-product">
+
+
+                    <a href=""><img src="Image_dalis/hot-product-item3.jpg" alt=""></a>
+                    <div><a href="">Bao da đeo lưng điện thoại duới 5"<br>
+                            500.000đ
+                        </a>
+                        <div><a href=""><i style="font-size: 24px;" class="bi bi-basket"></i></a></div>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            <div class="image-new-hot">
+                <a href=""> <img src="Image_dalis/image-content-newhot2.jpg" alt=""></a>
+            </div>
+        </div>
+
+        <!--END new product-right -->
+
+
+
+
+
+    </div>
+
+    <!-- END new product -->
+
+    <!-- start newspaper -->
+
+    <div class="title-newspaper">
+        <h3>Bài viết mới</h3>
+    </div>
+    <div class="newspaper-product">
+        <div class="newspaper-item">
+            <img src="Image_dalis/newspaper-item1.jpg" alt="">
+            <div class="sub-newspaper-item">
+                <ul>
+                    <li><a href="">Đôi giày nói lên điều gì về tính cách của bạn</a></li>
+                    <li style="font-size: 12px;color: rgb(151, 153, 155);">27/09/2017</li>
+                    <li id="continute-read"><a href="">Đọc tiếp</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="newspaper-item">
+            <img src="Image_dalis/newspaper-item2.jpg" alt="">
+            <div class="sub-newspaper-item">
+                <ul>
+                    <li><a href="">5 Kiểu túi xách nam style nhất 2017</a></li>
+                    <li style="font-size: 12px;color: rgb(151, 153, 155);">27/09/2017</li>
+                    <li id="continute-read"><a href="">Đọc tiếp</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="newspaper-item">
+            <img src="Image_dalis/newspaper-item3.jpg" alt="">
+            <div class="sub-newspaper-item">
+                <ul>
+                    <li><a href="">Tư học cách đánh xi cho giày da bóng mới</a></li>
+                    <li style="font-size: 12px;color: rgb(151, 153, 155);">27/09/2017</li>
+                    <li id="continute-read"><a href="">Đọc tiếp</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- end newspaper -->
+    <!-- brand -->
+    <div class="brand">
+        <ul>
+            <li><a href=""><img src="Image_dalis/brand_image_1.jpg" alt=""></a></li>
+            <li><a href=""><img src="Image_dalis/brand_image_2.jpg" alt=""></a></li>
+            <li><a href=""><img src="Image_dalis/brand_image_3.jpg" alt=""></a></li>
+            <li><a href=""><img src="Image_dalis/brand_image_4.jpg" alt=""></a></li>
+            <li><a href=""><img src="Image_dalis/brand_image_5.jpg" alt=""></a></li>
+            <li><a href=""><img src="Image_dalis/brand_image_6.jpg" alt=""></a></li>
+        </ul>
+    </div>
+    <!-- END brand -->
+    <!-- register -->
+    <div class="register">
+        <h2>Đăng kí nhận tin</h2>
+        <div>
+            <input style="width: 457px;height: 35px;" type="email" name="" id="txtSearch" placeholder="Email của bạn">
+            <input style="width: 98px;height: 40px;background-color: black;color: white;margin-left: -4px;"
+                id="btbRegister" type="button" value="Đăng kí">
+        </div>
+        <p style="color: rgb(75, 72, 72);">Nhận thông tin sản phẩm khuyến mãi mới nhất,tin khuyến mãi và nhiều hơn nữa
+        </p>
+    </div>
+    <!-- end register -->
+
+    <!-- End Product -->
+
+    <!-- footer -->
+    <footer>
+        <div class="contact-footer">
+            <!-- contact-footer -->
+            <div class="contact-footer-left">
+                <h4>LIÊN HỆ</h4>
+                <div style="height: 48px;">Chuyên các sản phẩm về da:ví Sen,dán trang trí,bao da,ví da cho điện thoại.
+                </div>
+                <ul>
+                    <li><a href=""><i class="bi bi-geo-alt-fill"></i> 70 Lu Gia,Ward 15,District 11,Ho Chi Minh City</a></li>
+                    <li><a href=""><i class="bi bi-telephone-fill"></i> 1900 6750</a></li>
+                    <li><a href=""><i class="bi bi-envelope"></i> support@sapo.vn</a></li>
+                </ul>
+            </div>
+            <!--END contact-footer-left -->
+
+
+            <!-- contact-footer-right -->
+            <div class="contact-footer-right">
+                <div class="product-contact">
+                    <div class="sub-product-contact">
+                        <h4>VỀ CHÚNG TÔI</h4>
+                        <ul>
+                            <li><a href="">Trang chủ</a></li>
+                            <li><a href="">Sản phẩm</a></li>
+                            <li><a href="">Bao da</a></li>
+                            <li><a href="">Ví da & Túi xách</a></li>
+                            <li><a href="">Tạp chí</a></li>
+                            <li><a href="">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="product-contact">
+                    <div class="sub-product-contact">
+                        <h4>THÔNG TIN</h4>
+                        <ul>
+                            <li><a href="">Trang chủ</a></li>
+                            <li><a href="">Sản phẩm</a></li>
+                            <li><a href="">Bao da</a></li>
+                            <li><a href="">Ví da & Túi xách</a></li>
+                            <li><a href="">Tạp chí</a></li>
+                            <li><a href="">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="product-contact">
+                    <div class="sub-product-contact">
+                        <h4>HỖ TRỢ</h4>
+                        <ul>
+                            <li><a href="">Trang chủ</a></li>
+                            <li><a href="">Sản phẩm</a></li>
+                            <li><a href="">Bao da</a></li>
+                            <li><a href="">Ví da & Túi xách</a></li>
+                            <li><a href="">Tạp chí</a></li>
+                            <li><a href="">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="product-contact">
+                    <div class="sub-product-contact">
+                        <h4>KẾT NỐI</h4>
+                        <ul>
+                            <li><a href=""><i class="bi bi-facebook"></i> Facebook</a></li>
+                            <li><a href=""><i class="bi bi-twitter"></i> Twitter</a></li>
+                            <li><a href=""><i class="bi bi-instagram"></i> Instagram</a></li>
+                            <li><a href=""><i class="bi bi-google"></i> Google Plus</a></li>
+                            <li><a href=""><i class="bi bi-pinterest"></i> Pinterest</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+            </div>
+             <!-- contact-footer-right -->
+        </div>
+        <!-- END Contact-footer -->
+
+        <div class="contact-footer-bottom">
+            <div style="font-size: 12px;line-height: 32px;margin-top: 20px;" class="contact-footer-bottom-left">
+                <i class="bi bi-c-circle"></i> Bản quyền thuộc Kiền Vàng | Cung cấp bởi Sapo
+            </div>
+            <div class="contact-footer-bottom-right">
+                <ul>
+                    <li><a href=""><i class="fab fa-cc-visa"></i></a></li>
+                    <li><a href=""><i class="fab fa-cc-paypal"></i></a></li>
+                    <li><a href=""><i class="fab fa-cc-mastercard"></i></a></li>
+                    <li><a href=""><i class="fab fa-cc-discover"></i></a></li>
+                    <li><a href=""><i class="fab fa-cc-jcb"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+</body>
+
+</html>

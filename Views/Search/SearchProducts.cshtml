@@ -1,0 +1,114 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout2.cshtml";
+}
+
+
+
+@using QlBanOpDaDienThoai.Models
+@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<Product>
+
+<!-- sub banner -->
+<div class="sub-banner">
+    <div style="width: 400px;line-height: 38px;font-size: 24px;margin-left: 13px;">
+    </div>
+    <div class="filter-sub-banner">
+        <div style="line-height: 38px;font-size: 16px;">Lọc:</div>
+        <ul style="z-index: 1;">
+            @{
+                int category_id = ViewBag.category_id != null ? ViewBag.category_id : 0;
+            }
+            <select style="height:35px" id="orderby" onchange="location.href='Products/Category/@category_id?orderby='document.getElementById('orderby').value;'" class="use-chosen">
+                <option value="">Default sorting</option>
+                <option value="name-asc">A-Z</option>
+                <option value="name-desc">Z-A</option>
+                <option value="price-asc">Giá tăng dần</option>
+                <option value="price-desc">Giá giảm dần</option>
+                <option value="discount-desc">Giảm giá nhiều nhất</option>
+
+            </select>
+
+
+        </ul>
+
+    </div>
+</div>
+
+
+<!-- end sub-banner -->
+<!-- category-product col1 -->
+<!-- col1 -->
+<div class="category-productsp" style="display:block">
+
+    @foreach (var item in Model)
+    {
+        <div style="float:left" class="category-productsp-item col-4">
+            <!-- item -->
+            <div class="category-boxsp">
+                <a href="/Products/Detail/@item.Id">
+                    <img src="~/Upload/Products/@item.Photo" ;
+                         alt="">
+                </a>
+                <ul>
+                    <li>
+                        <a href="/Cart/Buy/@item.Id"><i class="bi bi-basket"></i></a>
+                    </li>
+                    <li>
+                        @*<a href="~/Upload/Products/@item.Photo"> <i class="bi bi-search"></i></a>*@
+                        <a href="/wishlist/add/@item.Id">  <i class="bi bi-heart"></i></a>
+
+                    </li>
+                </ul>
+
+            </div>
+            <!-- end-item -->
+            <div class="product-price" style="Text-align:center;margin-top: 10px;">
+                <a href="/Products/Rating/@item.Id?star=1" style="margin-right: 3px;"><i class="fa fa-star" style="color:#efce4a;font-size:12px"></i></a>
+                <a href="/Products/Rating/@item.Id?star=2" style="margin-right: 3px;"><i class="fa fa-star" style="color:#efce4a;font-size:12px"></i></a>
+                <a href="/Products/Rating/@item.Id?star=3" style="margin-right: 3px;"><i class="fa fa-star" style="color:#efce4a;font-size:12px"></i></a>
+                <a href="/Products/Rating/@item.Id?star=4" style="margin-right: 3px;"><i class="fa fa-star" style="color:#efce4a;font-size:12px"></i></a>
+                <a href="/Products/Rating/@item.Id?star=5" style="margin-right: 3px;"><i class="fa fa-star" style="color:#efce4a;font-size:12px"></i></a>
+            </div>
+            <div class="sub-category-productsp-item"><a href="~/Upload/Products/@item.Photo">@item.Name</a></div>
+            <div class="price-category-productsp">
+                @item.Price đ
+            </div>
+            <div style="border-radius: 0px 10px 10px 0px;" class="sale-content-new-hot">@item.Discount %</div>
+
+        </div>
+        <style>
+            .category-boxsp img {
+                transition: transform .5s ease;
+            }
+
+            /* [3] Finally, transforming the image when container gets hovered */
+            .category-boxsp:hover img {
+                transform: scale(1.5);
+            }
+        </style>
+    }
+
+</div>
+<div class="page" style="display: flex;text-align:center">
+    @Html.PagedListPager(Model, p => Url.Action("SearchProducts","Search", new{p,key=ViewBag._key}))
+
+</div>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<style>
+    .pagination li {
+        border: 1px solid green;
+        border-radius: 15px;
+        width: 18px;
+        text-align: center;
+        margin: 5px
+    }
+
+    .pagination {
+        display: flex;
+        list-style: none;
+    }
+</style>

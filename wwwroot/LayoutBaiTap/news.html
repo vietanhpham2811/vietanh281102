@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <script src="dalis.js"></script>
+    <link rel="stylesheet" href="news.css">
+    <script src="dalis.js"></script>
+</head>
+
+<body style="background-color: white;">
+    <!-- start header -->
+    <div class="header">
+        <!-- top header -->
+        <div class="top-header">
+            <div class="sub-top-header"><a href=""><i class="bi bi-facebook"></i></a> <a href=""><i
+                        class="bi bi-twitter"></i></a> <a href=""><i class="bi bi-instagram"></i></a> <a href=""> <i
+                        class="bi bi-google"></i></a> <a href=""> <i class="bi bi-pinterest"></i></a> Chào mừng bạn đến
+                với <a style="text-decoration: none;font-size: 14px;color: rgb(232, 24, 84);font-weight: bold;"
+                    href="">Ant Fashion</a>. Cùng vui mua sắm</div>
+        </div>
+        <!-- end top header -->
+        <!-- center-header -->
+        <div class="center-header">
+            <div class="logo-dalis"> <img src="Image_dalis/logo-dalis150x78.jpg" alt=""></div>
+
+
+            <div class="header-hotline">
+                <div class="hotline-online">
+                    <div><i style="font-size: 30px; color: rgb(3, 145, 253);" class="bi bi-chat-text-fill"> </i> </div>
+                    <div> Hỗ trợ trực tuyến <br> Gọi: <a href="" style="color: rgb(232, 24, 84) ;font-size: 12px;">0123
+                            456 789</a> </div>
+                </div>
+
+                <div class="open-time">
+                    <div><img src="Image_dalis/opentime35x35.png" alt=""></div>
+                    <div style="font-size: 14px;">T2-T7 9.00 - 18.00 <br> <a
+                            style="color: rgb(198, 197, 197) ;font-size: 12px;" href="">Chủ nhật
+                            NGHỈ</a> </div>
+                </div>
+
+            </div>
+
+            <div class="search">
+                <input id="txtSearch" type="search" placeholder="Tìm kiếm sản phẩm " value="">
+                <i onclick="search()" class="bi bi-search"></i>
+            </div>
+            <div class="login"><a href=""><i class="bi bi-person-circle"></i>
+                    <ul class="sub-login">
+                        <li>
+                            <a href="">Đăng Nhập</a>
+                        </li>
+                        <li>
+                            <a href="">Đăng ký</a>
+                        </li>
+                    </ul>
+                </a>
+
+
+
+            </div>
+
+
+        </div>
+        <!-- end-center-header -->
+
+        <!-- start menu -->
+        <div class="menu">
+            <div class="menu-left">
+                <ul>
+                    <li><a href="home.html">TRANG CHỦ</a></li>
+                    <li class="menu-product"><a href="shop.html">SẢN PHẨM<i class="bi bi-chevron-right"></i></a>
+                        <!-- submenu -->
+                        <div class="sub-menu">
+                            <!-- <div> -->
+                            <ul class="sub-menu-left">
+                                <h4 style="font-family: Arial;">LOẠI TRANG SẢN PHẨM</h4>
+                                <li><a href="">Sản phẩm có tab cố đinh</a></li>
+                                <li><a href="">Sản phẩm có khuyến mãi</a></li>
+                                <li><a href="">Sản phẩm ảnh đổi màu</a></li>
+                            </ul>
+
+                            <ul class="sub-menu-right">
+
+                                <h4 style="font-family: Arial;">MIẾNG DÁN DA</h4>
+
+                                <li><a href="">Bản đặc biệt</a></li>
+                                <li><a href="">Apple</a></li>
+                                <li><a href="">SamSung</a></li>
+                                <li><a href="">Blackberry</a></li>
+
+                                <li><a href="">Sony</a></li>
+                                <li><a href="">Laptop</a></li>
+                                <li><a href="">Nokia</a></li>
+                            </ul>
+                            <!-- </div> -->
+
+                        </div>
+                        <!-- end sub-menu -->
+                    </li>
+                    <li><a href="">BAO DA</a></li>
+                    <li><a href="">VÍ DA & TÚI XÁCH</a></li>
+                    <li><a href="news.html">TẠP CHÍ</a></li>
+                    <li><a href="">LIÊN HỆ</a></li>
+
+                </ul>
+            </div>
+            <div class="menu-right">
+                <ul>
+                    <li><a href="cart.html"><i style="font-size: 25px;" class="bi bi-cart4"></i></a> </li>
+                    <li><a href="cart.html">Giỏ Hàng</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- end menu -->
+    </div>
+    <!-- end header -->
+
+    <!-- banner -->
+    <div class="banner-image-new">
+        <img src="Image_dalis/banner-image-new.png" alt="">
+        <div class="sub-banner-image-new">
+            <ul>
+                <li style="font-weight: bold; font-size: 24px;">TIN TỨC</li>
+                <li style="line-height:25px;">May thủ công hoàn toàn với những đôi bàn tay khéo léo, mỗi đường kim mũi
+                    chỉ thể hiện sự tâm huyết của người nghệ sĩ trên tác phẩm của mình, mang đến trải nghiệm tốt nhất
+                    cho người dùng</li>
+            </ul>
+        </div>
+    </div>
+    <!-- banner -->
+
+
+
+
+
+    <!-- start newspaper -->
+
+    <div class="title-newspaper">
+        <h3 style="font-size: 26px;font-weight: 100;">XU HƯỚNG</h3>
+    </div>
+    <div class="newspaper-product">
+        <div class="newspaper-item">
+            <img src="Image_dalis/newspaper-item1.jpg" alt="">
+            <div class="sub-newspaper-item">
+                <ul>
+                    <li><a href="">Đôi giày nói lên điều gì về tính cách của bạn</a></li>
+                    <li style="font-size: 12px;color: rgb(151, 153, 155);">27/09/2017</li>
+                    <!-- <li id="continute-read"><a href="">Đọc tiếp</a></li> -->
+                </ul>
+            </div>
+        </div>
+        <div class="newspaper-item">
+            <img src="Image_dalis/newspaper-item2.jpg" alt="">
+            <div class="sub-newspaper-item">
+                <ul>
+                    <li><a href="">5 Kiểu túi xách nam style nhất 2017</a></li>
+                    <li style="font-size: 12px;color: rgb(151, 153, 155);">27/09/2017</li>
+                    <!-- <li id="continute-read"><a href="">Đọc tiếp</a></li> -->
+                </ul>
+            </div>
+        </div>
+        <div class="newspaper-item">
+            <img src="Image_dalis/newspaper-item3.jpg" alt="">
+            <div class="sub-newspaper-item">
+                <ul>
+                    <li><a href="">Tư học cách đánh xi cho giày da bóng mới</a></li>
+                    <li style="font-size: 12px;color: rgb(151, 153, 155);">27/09/2017</li>
+                    <!-- <li id="continute-read"><a href="">Đọc tiếp</a></li> -->
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- end newspaper -->
+    <!-- blog -->
+    <div class="blog">
+        <!-- blog-left -->
+        <div class="blog-item">
+            <h3>Đôi giày nói lên điều gì về tính cách của bạn</h3>
+            <div class="image-blog"><img src="Image_dalis/img-blog1.png" alt=""> </div>
+            <div class="post-time">27/09/2017 - NGUYỄN CHÁNH BẢO TRUNG</div>
+            <p class="blog-sub">Tính cách của mỗi người thể hiện muôn vẻ muôn phần theo trạng thái, không gian, hoàn
+                cảnh. Nhưng một nghiên cứu gần đây cho thấy rằng 90%...</p>
+            <a style="color: black;font-size: 11px;font-weight: bold;" href="">CHI TIẾT <i
+                    class="fas fa-angle-double-right"></i> </a>
+
+        </div>
+        <!-- blog right -->
+        <div class="blog-item">
+            <h3>5 Kiểu túi xách nam style nhất 2017</h3>
+            <div class="image-blog"><img src="Image_dalis/img-blog2.png" alt=""></div>
+            <div class="post-time">27/09/2017 - NGUYỄN CHÁNH BẢO TRUNG</div>
+            <p class="blog-sub">Thế giới thời trang túi xách dành cho phái mạnh cực phong phú với nhiều kiểu dáng, màu
+                sắc đa dạng và rất nhiều sự lựa chọn về chất liệu ...</p>
+            <a style="color: black;font-size: 11px;font-weight: bold;" href="">CHI TIẾT <i
+                    class="fas fa-angle-double-right"></i> </a>
+
+        </div>
+
+    </div>
+    <!-- end-blog -->
+
+    <!-- blog-tips1 -->
+    <div class="blog-tips">
+        <!-- 1 -->
+        <div class="blog-tips-item">
+            <h3>Tự học cách đánh xi cho giày da bóng mới</h3>
+            <div class="image-blog-tips"><img src="Image_dalis/img-blog-tips1.png" alt=""> </div>
+            <div class="post-time">27/09/2017 - NGUYỄN CHÁNH BẢO TRUNG</div>
+            <p class="blog-sub">Bạn có biết rằng ngay cả những đôi giày da đắt tiền dù được đánh bóng thường xuyên vẫn
+                có thể xuống cấp nếu quy trình đánh xi không ...</p>
+            <a style="color: black;font-size: 11px;font-weight: bold;" href="">CHI TIẾT <i
+                    class="fas fa-angle-double-right"></i> </a>
+
+        </div>
+        <!-- 2 -->
+        <div class="blog-tips-item">
+            <h3>Cách bảo quản túi xách da luôn bền đẹp</h3>
+            <div class="image-blog-tips"><img src="Image_dalis/img-blog-tips2.png" alt=""></div>
+            <div class="post-time">27/09/2017 - NGUYỄN CHÁNH BẢO TRUNG</div>
+            <p class="blog-sub">Khi bạn đã đầu tư rất nhiều tiền cho một chiếc túi xách, bạn nên quan tâm đến việc chăm
+                sóc lớp da để chiếc túi luôn bền đẹp. Hãy luôn nh...</p>
+            <a style="color: black;font-size: 11px;font-weight: bold;" href="">CHI TIẾT <i
+                    class="fas fa-angle-double-right"></i> </a>
+
+        </div>
+        <!-- 3 -->
+        <div class="blog-tips-item">
+            <h3>Bí quyết chọn thắt lưng và cách phối đồ hoàn hảo</h3>
+            <div class="image-blog-tips"><img src="Image_dalis/img-blog-tips3.png" alt=""> </div>
+            <div class="post-time">27/09/2017 - NGUYỄN CHÁNH BẢO TRUNG</div>
+            <p class="blog-sub">Đeo dây thắt lưng là một việc vô cùng quen thuộc với hầu hết đàn ông. Giờ đây có rất
+                nhiều kiểu mẫu, màu sắc và chất liệu khác nhau....</p>
+            <a style="color: black;font-size: 11px;font-weight: bold;" href="">CHI TIẾT <i
+                    class="fas fa-angle-double-right"></i> </a>
+
+        </div>
+
+    </div>
+    <!--END blog-tips1 -->
+
+    <!-- blog2 -->
+    <div class="blog">
+        <!-- blog-left -->
+        <div class="blog-item">
+            <h3>17 Món đồ thời trang phái mạnh nên đầu tư trong năm 2017</h3>
+            <div class="image-blog"><img src="Image_dalis/img-blog1.png" alt=""> </div>
+            <div class="post-time">27/09/2017 - NGUYỄN CHÁNH BẢO TRUNG</div>
+            <p class="blog-sub">Năm mới đã đến rồi, các chàng trai đã xem lại tủ đồ của mình để lựa chọn những trang phục phù hợp chưa? Liệu bạn có bỏ quên những món đồ ...</p>
+            <a style="color: black;font-size: 11px;font-weight: bold;" href="">CHI TIẾT <i
+                    class="fas fa-angle-double-right"></i> </a>
+
+        </div>
+        <!-- blog right -->
+        <div class="blog-item">
+            <h3>Phạm Băng Băng chính là sao châu Á đầu tiên mặc thiết kế từ BST ERDEM x H&M</h3>
+            <div class="image-blog"><img src="Image_dalis/img-blog2.png" alt=""></div>
+            <div class="post-time">27/09/2017 - NGUYỄN CHÁNH BẢO TRUNG</div>
+            <p class="blog-sub">Cách đây không lâu, thương hiệu thời trang H&M công bố những thông tin đầu tiên về bộ sưu tập kết hợp ERDEM x H&M&...</p>
+            <a style="color: black;font-size: 11px;font-weight: bold;" href="">CHI TIẾT <i
+                    class="fas fa-angle-double-right"></i> </a>
+
+        </div>
+
+    </div>
+    <!-- end blog2 -->
+     <!-- blog-tips2 -->
+     <div class="blog-tips">
+        <!-- 1 -->
+        <div class="blog-tips-item">
+            <h3>9 Chiếc dây thắt lưng cánh mày râu nên chọn cho mùa xuân này</h3>
+            <div class="image-blog-tips"><img src="Image_dalis/img-blog-tips4.png" alt=""> </div>
+            <div class="post-time">27/09/2017 - NGUYỄN CHÁNH BẢO TRUNG</div>
+            <p class="blog-sub">Không chỉ trang phục hay giày dép, ngoài ra chiếc dây lưng cũng là một trong những phụ kiện cần thay đổi làm mới một chút với các cánh mà...</p>
+            <a style="color: black;font-size: 11px;font-weight: bold;" href="">CHI TIẾT <i
+                    class="fas fa-angle-double-right"></i> </a>
+
+        </div>
+        <!-- 2 -->
+        <div class="blog-tips-item">
+            <h3>Làm thế nào để chọn túi đựng ipad hàng hiệu chuẩn thời thượng</h3>
+            <div class="image-blog-tips"><img src="Image_dalis/img-blog-tips5.png" alt=""></div>
+            <div class="post-time">27/09/2017 - NGUYỄN CHÁNH BẢO TRUNG</div>
+            <p class="blog-sub">Túi đựng ipad với thiết kế nhỏ gọn, tiện ích rất phù hợp đối với phái nam. Ngoài công dụng như đúng như tên gọi của nó thì túi còn đ...</p>
+            <a style="color: black;font-size: 11px;font-weight: bold;" href="news-detail.html">CHI TIẾT <i
+                    class="fas fa-angle-double-right"></i> </a>
+
+        </div>
+        <!-- 3 -->
+        <div class="blog-tips-item">
+            <h3>Hướng dẫn bảo quản sản phẩm da</h3>
+            <div class="image-blog-tips"><img src="Image_dalis/img-blog-tips6.png" alt=""> </div>
+            <div class="post-time">27/09/2017 - NGUYỄN CHÁNH BẢO TRUNG</div>
+            <p class="blog-sub">Da thuộc là một loại vật liệu tự nhiên rất đẹp và có tính bền cao, nếu biết cách bảo quản, sản phẩm da của bạn sẽ sử dụng được lâu và đẹp...</p>
+            <a style="color: black;font-size: 11px;font-weight: bold;" href="">CHI TIẾT <i
+                    class="fas fa-angle-double-right"></i> </a>
+
+        </div>
+
+    </div>
+    <!--END blog-tips2 -->
+
+
+
+
+
+    <!-- footer -->
+    <footer>
+        <div class="contact-footer">
+            <!-- contact-footer -->
+            <div class="contact-footer-left">
+                <h4>LIÊN HỆ</h4>
+                <div style="height: 48px;">Chuyên các sản phẩm về da:ví Sen,dán trang trí,bao da,ví da cho điện thoại.
+                </div>
+                <ul>
+                    <li><a href=""><i class="bi bi-geo-alt-fill"></i> 70 Lu Gia,Ward 15,District 11,Ho Chi Minh City</a>
+                    </li>
+                    <li><a href=""><i class="bi bi-telephone-fill"></i> 1900 6750</a></li>
+                    <li><a href=""><i class="bi bi-envelope"></i> support@sapo.vn</a></li>
+                </ul>
+            </div>
+            <!--END contact-footer-left -->
+
+
+            <!-- contact-footer-right -->
+            <div class="contact-footer-right">
+                <div class="product-contact">
+                    <div class="sub-product-contact">
+                        <h4>VỀ CHÚNG TÔI</h4>
+                        <ul>
+                            <li><a href="">Trang chủ</a></li>
+                            <li><a href="">Sản phẩm</a></li>
+                            <li><a href="">Bao da</a></li>
+                            <li><a href="">Ví da & Túi xách</a></li>
+                            <li><a href="">Tạp chí</a></li>
+                            <li><a href="">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="product-contact">
+                    <div class="sub-product-contact">
+                        <h4>THÔNG TIN</h4>
+                        <ul>
+                            <li><a href="">Trang chủ</a></li>
+                            <li><a href="">Sản phẩm</a></li>
+                            <li><a href="">Bao da</a></li>
+                            <li><a href="">Ví da & Túi xách</a></li>
+                            <li><a href="">Tạp chí</a></li>
+                            <li><a href="">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="product-contact">
+                    <div class="sub-product-contact">
+                        <h4>HỖ TRỢ</h4>
+                        <ul>
+                            <li><a href="">Trang chủ</a></li>
+                            <li><a href="">Sản phẩm</a></li>
+                            <li><a href="">Bao da</a></li>
+                            <li><a href="">Ví da & Túi xách</a></li>
+                            <li><a href="">Tạp chí</a></li>
+                            <li><a href="">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="product-contact">
+                    <div class="sub-product-contact">
+                        <h4>KẾT NỐI</h4>
+                        <ul>
+                            <li><a href=""><i class="bi bi-facebook"></i> Facebook</a></li>
+                            <li><a href=""><i class="bi bi-twitter"></i> Twitter</a></li>
+                            <li><a href=""><i class="bi bi-instagram"></i> Instagram</a></li>
+                            <li><a href=""><i class="bi bi-google"></i> Google Plus</a></li>
+                            <li><a href=""><i class="bi bi-pinterest"></i> Pinterest</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+        <!-- contact-footer-right -->
+        </div>
+        <!-- END Contact-footer -->
+
+        <div class="contact-footer-bottom">
+            <div style="font-size: 12px;line-height: 32px;margin-top: 20px;" class="contact-footer-bottom-left">
+                <i class="bi bi-c-circle"></i> Bản quyền thuộc Kiền Vàng | Cung cấp bởi Sapo
+            </div>
+            <div class="contact-footer-bottom-right">
+                <ul>
+                    <li><a href=""><i class="fab fa-cc-visa"></i></a></li>
+                    <li><a href=""><i class="fab fa-cc-paypal"></i></a></li>
+                    <li><a href=""><i class="fab fa-cc-mastercard"></i></a></li>
+                    <li><a href=""><i class="fab fa-cc-discover"></i></a></li>
+                    <li><a href=""><i class="fab fa-cc-jcb"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+</body>
+
+</html>

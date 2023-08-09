@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viet Anh</title>
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+
+    <script src="dalis.js"></script>
+
+</head>
+
+<body style="background-color: white;">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <!-- start header -->
+    <div class="header">
+        <!-- top header -->
+        <div class="top-header">
+            <div class="sub-top-header"><a href=""><i class="bi bi-facebook"></i></a> <a href=""><i
+                        class="bi bi-twitter"></i></a> <a href=""><i class="bi bi-instagram"></i></a> <a href=""> <i
+                        class="bi bi-google"></i></a> <a href=""> <i class="bi bi-pinterest"></i></a> Chào mừng bạn đến
+                với <a style="text-decoration: none;font-size: 14px;color: rgb(232, 24, 84);font-weight: bold;"
+                    href="">Ant Fashion</a>. Cùng vui mua sắm</div>
+        </div>
+        <!-- end top header -->
+        <!-- center-header -->
+        <div class="center-header">
+            <div class="logo-dalis"> <img src="Image_dalis/logo-dalis150x78.jpg" alt=""></div>
+
+
+            <div class="header-hotline">
+                <div class="hotline-online">
+                    <div><i style="font-size: 30px; color: rgb(3, 145, 253);" class="bi bi-chat-text-fill"> </i> </div>
+                    <div> Hỗ trợ trực tuyến <br> Gọi: <a href="" style="color: rgb(232, 24, 84) ;font-size: 12px;">0123
+                            456 789</a> </div>
+                </div>
+
+                <div class="open-time">
+                    <div><img src="Image_dalis/opentime35x35.png" alt=""></div>
+                    <div style="font-size: 14px;">T2-T7 9.00 - 18.00 <br> <a
+                            style="color: rgb(198, 197, 197) ;font-size: 12px;" href="">Chủ nhật
+                            NGHỈ</a> </div>
+                </div>
+
+            </div>
+
+            <div class="search">
+                <input id="txtSearch" type="search" placeholder="Tìm kiếm sản phẩm " value="">
+                <i onclick="search()" class="bi bi-search"></i>
+            </div>
+            <div class="login"><a href=""><i class="bi bi-person-circle"></i>
+                    <ul class="sub-login">
+                        <li>
+                            <a href="">Đăng Nhập</a>
+                        </li>
+                        <li>
+                            <a href="">Đăng ký</a>
+                        </li>
+                    </ul>
+                </a>
+
+
+
+            </div>
+
+
+        </div>
+        <!-- end-center-header -->
+
+        <!-- start menu -->
+        <div class="menu">
+            <div class="menu-left">
+                <ul>
+                    <li><a href="home.html">TRANG CHỦ</a></li>
+                    <li class="menu-product"><a href="shop.html">SẢN PHẨM<i class="bi bi-chevron-right"></i></a>
+                        <!-- submenu -->
+                        <div class="sub-menu">
+                            <!-- <div> -->
+                            <ul class="sub-menu-left">
+                                <h4 style="font-family: Arial;">LOẠI TRANG SẢN PHẨM</h4>
+                                <li><a href="">Sản phẩm có tab cố đinh</a></li>
+                                <li><a href="">Sản phẩm có khuyến mãi</a></li>
+                                <li><a href="">Sản phẩm ảnh đổi màu</a></li>
+                            </ul>
+
+                            <ul class="sub-menu-right">
+
+                                <h4 style="font-family: Arial;">MIẾNG DÁN DA</h4>
+
+                                <li><a href="">Bản đặc biệt</a></li>
+                                <li><a href="">Apple</a></li>
+                                <li><a href="">SamSung</a></li>
+                                <li><a href="">Blackberry</a></li>
+
+                                <li><a href="">Sony</a></li>
+                                <li><a href="">Laptop</a></li>
+                                <li><a href="">Nokia</a></li>
+                            </ul>
+                            <!-- </div> -->
+
+                        </div>
+                        <!-- end sub-menu -->
+                    </li>
+                    <li><a href="">BAO DA</a></li>
+                    <li><a href="">VÍ DA & TÚI XÁCH</a></li>
+                    <li><a href="news.html">TẠP CHÍ</a></li>
+                    <li><a href="">LIÊN HỆ</a></li>
+
+                </ul>
+            </div>
+            <div class="menu-right">
+                <ul>
+                    <li><a href="cart.html"><i style="font-size: 25px;" class="bi bi-cart4"></i></a> </li>
+                    <li><a href="cart.html">Giỏ Hàng</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- end menu -->
+    </div>
+    <!-- end header -->
+
+
+    <div class="sub-link-product col-xs-12">
+        <a href="home.html" style="color: black;font-size: 12px;">Trang chủ</a><i class="bi bi-chevron-right"></i>
+        <h style="color:rgb(232, 24, 84) ;">Giỏ hàng</h>
+    </div>
+    <div class="cart-body">
+        <div class="title">
+            <h3>GIỎ HÀNG</h3>
+        </div>
+
+        <!-- cart-product -->
+        <div class="cart-product">
+            <!-- cart-product-left -->
+            <div class="cart-product-left">
+                <!-- 1 -->
+                <div class="product-left">
+                    <div class="image-prd"> <img src="Image_dalis/hot-product-item1.jpg" alt=""></div>
+                    <div class="sub-product">
+                        <ul>
+                            <li style="font-weight: bold ;">Bao da điện thoại SamSung Note 8</li>
+                            <li style="cursor: pointer;color:rgb(232, 24, 84) ;">Xóa</li>
+                        </ul>
+
+                        <div class="box-price">
+                            <p>600.000đ</p>
+                        </div>
+                        <div class="sub-quantity" style="margin-top: 13px;margin-left: 20px;">
+                            <button id="btnMinus">-</button>
+                            <input id="quantity" style="width: 32px;height: 25px;padding: 0px;text-align: center;"
+                                type="text" value="1">
+                            <button id="btnAdd">+</button>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- 2 -->
+                <div class="product-left">
+                    <div class="image-prd"> <img src="Image_dalis/hot-product-item1-1.jpg" alt=""></div>
+                    <div class="sub-product">
+                        <ul>
+                            <li style="font-weight: bold ;">Dán da Samsung Galaxy S7 Edge - Đỏ</li>
+                            <li style="cursor: pointer; color:rgb(232, 24, 84) ;">Xóa</li>
+                        </ul>
+
+                        <div class="box-price">
+                            <p> 200.000₫</p>
+                        </div>
+                        <div class="sub-quantity" style="margin-top: 13px;margin-left: 20px;">
+                            <button id="btnMinus2">-</button>
+                            <input id="quantity2" style="width: 32px;height: 25px;padding: 0px;text-align: center;"
+                                type="text" value="1">
+                            <button id="btnAdd2">+</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- END cart-product-right -->
+            <script>
+                $(document).ready(function () {
+                    $("#btnAdd").click(function () {
+                        var soluong = $("#quantity").val();
+                        var sl = parseInt(soluong);
+                        var str = sl + 1;
+                        $("#quantity").val(str);
+                        
+                    })
+                    $("#btnAdd2").click(function () {
+                        var soluong = $("#quantity2").val();
+                        var sl = parseInt(soluong);
+                        var str = sl + 1;
+                        $("#quantity2").val(str);
+                    })
+
+                    $("#btnMinus").click(function () {
+                        var soluong = $("#quantity").val();
+                        var sl = parseInt(soluong);
+                        if (sl == 0) {
+                            return 0;
+                        } else { var str = sl - 1; }
+
+                        $("#quantity").val(str);
+                    })
+
+                    $("#btnMinus2").click(function () {
+                        var soluong = $("#quantity2").val();
+                        var sl = parseInt(soluong);
+                        if (sl == 0) {
+                            return 0;
+                        } else { var str = sl - 1; }
+
+                        $("#quantity2").val(str);
+                    })
+                   
+                });
+                setInterval(function(){
+                    var so1=document.getElementById("quantity").value;
+                    var so2=document.getElementById("quantity2").value;
+                    var sl1=parseInt(so1);
+                    var sl2=parseInt(so2);
+                    var str=sl1*600000+sl2*200000;
+                    document.getElementById("price").innerHTML=str;
+                    document.getElementById("sub-price").innerHTML=str;
+                });
+            </script>
+            <!-- cart-product-right -->
+            <div class="cart-product-right">
+                <div class="sub-price">
+                    <h>Tạm Tính</h>
+                    <div id="sub-price"></div>
+                </div>
+
+                <div class="price">
+                    <h>Thành Tiền</h>
+                    <div id="price" style=" margin-left: 100px; font-size: 24px;
+                    font-weight: bold;color:rgb(232, 24, 84) ;"></div>
+                </div>
+
+                <button class="pay">THANH TOÁN NGAY</button>
+                <button class="shop-continute">TIẾP TỤC MUA HÀNG</button>
+            </div>
+            <!-- cart-product-right -->
+
+        </div>
+        <!-- cart-product -->
+
+    </div>
+
+
+
+
+
+
+
+    <!-- footer -->
+    <footer>
+        <div class="contact-footer">
+            <!-- contact-footer -->
+            <div class="contact-footer-left">
+                <h4>LIÊN HỆ</h4>
+                <div style="height: 48px;">Chuyên các sản phẩm về da:ví Sen,dán trang trí,bao da,ví da cho điện thoại.
+                </div>
+                <ul>
+                    <li><a href=""><i class="bi bi-geo-alt-fill"></i> 70 Lu Gia,Ward 15,District 11,Ho Chi Minh City</a>
+                    </li>
+                    <li><a href=""><i class="bi bi-telephone-fill"></i> 1900 6750</a></li>
+                    <li><a href=""><i class="bi bi-envelope"></i> support@sapo.vn</a></li>
+                </ul>
+            </div>
+            <!--END contact-footer-left -->
+
+
+            <!-- contact-footer-right -->
+            <div class="contact-footer-right">
+                <div class="product-contact">
+                    <div class="sub-product-contact">
+                        <h4>VỀ CHÚNG TÔI</h4>
+                        <ul>
+                            <li><a href="">Trang chủ</a></li>
+                            <li><a href="">Sản phẩm</a></li>
+                            <li><a href="">Bao da</a></li>
+                            <li><a href="">Ví da & Túi xách</a></li>
+                            <li><a href="">Tạp chí</a></li>
+                            <li><a href="">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="product-contact">
+                    <div class="sub-product-contact">
+                        <h4>THÔNG TIN</h4>
+                        <ul>
+                            <li><a href="">Trang chủ</a></li>
+                            <li><a href="">Sản phẩm</a></li>
+                            <li><a href="">Bao da</a></li>
+                            <li><a href="">Ví da & Túi xách</a></li>
+                            <li><a href="">Tạp chí</a></li>
+                            <li><a href="">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="product-contact">
+                    <div class="sub-product-contact">
+                        <h4>HỖ TRỢ</h4>
+                        <ul>
+                            <li><a href="">Trang chủ</a></li>
+                            <li><a href="">Sản phẩm</a></li>
+                            <li><a href="">Bao da</a></li>
+                            <li><a href="">Ví da & Túi xách</a></li>
+                            <li><a href="">Tạp chí</a></li>
+                            <li><a href="">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="product-contact">
+                    <div class="sub-product-contact">
+                        <h4>KẾT NỐI</h4>
+                        <ul>
+                            <li><a href=""><i class="bi bi-facebook"></i> Facebook</a></li>
+                            <li><a href=""><i class="bi bi-twitter"></i> Twitter</a></li>
+                            <li><a href=""><i class="bi bi-instagram"></i> Instagram</a></li>
+                            <li><a href=""><i class="bi bi-google"></i> Google Plus</a></li>
+                            <li><a href=""><i class="bi bi-pinterest"></i> Pinterest</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+            </div>
+            <!-- contact-footer-right -->
+        </div>
+        <!-- END Contact-footer -->
+
+        <div class="contact-footer-bottom">
+            <div style="font-size: 12px;line-height: 32px;margin-top: 20px;" class="contact-footer-bottom-left">
+                <i class="bi bi-c-circle"></i> Bản quyền thuộc Kiền Vàng | Cung cấp bởi Sapo
+            </div>
+            <div class="contact-footer-bottom-right">
+                <ul>
+                    <li><a href=""><i class="fab fa-cc-visa"></i></a></li>
+                    <li><a href=""><i class="fab fa-cc-paypal"></i></a></li>
+                    <li><a href=""><i class="fab fa-cc-mastercard"></i></a></li>
+                    <li><a href=""><i class="fab fa-cc-discover"></i></a></li>
+                    <li><a href=""><i class="fab fa-cc-jcb"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+</body>
+
+</html>

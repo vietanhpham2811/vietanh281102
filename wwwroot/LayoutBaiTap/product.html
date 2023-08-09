@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="product.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <script src="dalis.js"></script>
+    
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
+
+</head>
+
+<body style="background-color: white;">
+    <!-- start header -->
+    <div class="header">
+        <!-- top header -->
+        <div class="top-header">
+            <div class="sub-top-header"><a href=""><i class="bi bi-facebook"></i></a> <a href=""><i
+                        class="bi bi-twitter"></i></a> <a href=""><i class="bi bi-instagram"></i></a> <a href=""> <i
+                        class="bi bi-google"></i></a> <a href=""> <i class="bi bi-pinterest"></i></a> Chào mừng bạn đến
+                với <a style="text-decoration: none;font-size: 14px;color: rgb(232, 24, 84);font-weight: bold;"
+                    href="">Ant Fashion</a>. Cùng vui mua sắm</div>
+        </div>
+        <!-- end top header -->
+        <!-- center-header -->
+        <div class="center-header">
+            <div class="logo-dalis"> <img src="Image_dalis/logo-dalis150x78.jpg" alt=""></div>
+
+
+            <div class="header-hotline">
+                <div class="hotline-online">
+                    <div><i style="font-size: 30px; color: rgb(3, 145, 253);" class="bi bi-chat-text-fill"> </i> </div>
+                    <div> Hỗ trợ trực tuyến <br> Gọi: <a href="" style="color: rgb(232, 24, 84) ;font-size: 12px;">0123
+                            456 789</a> </div>
+                </div>
+
+                <div class="open-time">
+                    <div><img src="Image_dalis/opentime35x35.png" alt=""></div>
+                    <div style="font-size: 14px;">T2-T7 9.00 - 18.00 <br> <a
+                            style="color: rgb(198, 197, 197) ;font-size: 12px;" href="">Chủ nhật
+                            NGHỈ</a> </div>
+                </div>
+
+            </div>
+
+            <div class="search">
+                <input id="txtSearch" type="search" placeholder="Tìm kiếm sản phẩm " value="">
+                <i onclick="search()" class="bi bi-search"></i>
+            </div>
+            <div class="login"><a href=""><i class="bi bi-person-circle"></i>
+                    <ul class="sub-login">
+                        <li>
+                            <a href="">Đăng Nhập</a>
+                        </li>
+                        <li>
+                            <a href="">Đăng ký</a>
+                        </li>
+                    </ul>
+                </a>
+
+
+
+            </div>
+
+
+        </div>
+        <!-- end-center-header -->
+
+        <!-- start menu -->
+        <div class="menu">
+            <div class="menu-left">
+                <ul>
+                    <li><a href="home.html">TRANG CHỦ</a></li>
+                    <li class="menu-product"><a href="shop.html">SẢN PHẨM<i class="bi bi-chevron-right"></i></a>
+                        <!-- submenu -->
+                        <div class="sub-menu">
+                            <!-- <div> -->
+                            <ul class="sub-menu-left">
+                                <h4 style="font-family: Arial;">LOẠI TRANG SẢN PHẨM</h4>
+                                <li><a href="">Sản phẩm có tab cố đinh</a></li>
+                                <li><a href="">Sản phẩm có khuyến mãi</a></li>
+                                <li><a href="">Sản phẩm ảnh đổi màu</a></li>
+                            </ul>
+
+                            <ul class="sub-menu-right">
+
+                                <h4 style="font-family: Arial;">MIẾNG DÁN DA</h4>
+
+                                <li><a href="">Bản đặc biệt</a></li>
+                                <li><a href="">Apple</a></li>
+                                <li><a href="">SamSung</a></li>
+                                <li><a href="">Blackberry</a></li>
+
+                                <li><a href="">Sony</a></li>
+                                <li><a href="">Laptop</a></li>
+                                <li><a href="">Nokia</a></li>
+                            </ul>
+                            <!-- </div> -->
+
+                        </div>
+                        <!-- end sub-menu -->
+                    </li>
+                    <li><a href="">BAO DA</a></li>
+                    <li><a href="">VÍ DA & TÚI XÁCH</a></li>
+                    <li><a href="">TẠP CHÍ</a></li>
+                    <li><a href="">LIÊN HỆ</a></li>
+
+                </ul>
+            </div>
+            <div class="menu-right">
+                <ul>
+                    <li><a href="cart.html"><i style="font-size: 25px;" class="bi bi-cart4"></i></a> </li>
+                    <li><a href="cart.html">Giỏ Hàng</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- end menu -->
+    </div>
+    <!-- end header -->
+
+    <div class="sub-link-product">
+        <a href="home.html">Trang chủ</a><i class="bi bi-chevron-right"></i><a href="shop.html">Tất cả sản phẩm</a><i
+            class="bi bi-chevron-right"></i>Dán da SamSung Galaxy S7.
+    </div>
+
+
+    <!-- body-product -->
+    <div class="body-product">
+
+        <!--body-product-left -->
+        <div class="body-product-left">
+            <!-- product-item -->
+            <div class="product-item">
+                <!-- image-item -->
+                <div onload="onload()" class="image-product-item">
+                    <div class="img-slide">
+                        <div class="img-slide1">
+                            <div class="img-show">
+                                <img id="slide-show" src="Image_dalis/galaxy-s7-edge-18.jpg" alt="">
+                            </div>
+                            <ul class="sub-img-show">
+                                <li><img style="border: none;" id="img1" onclick="change_img('img1')"
+                                        src="Image_dalis/galaxy-s7-edge-18.jpg" alt=""></li>
+                                <li><img style="border: none;" id="img2" onclick="change_img('img2')"
+                                        src="Image_dalis/galaxy-s7-edge-2.jpg" alt=""></li>
+                                <li><img style="border: none;" id="img3" onclick="change_img('img3')"
+                                        src="Image_dalis/galaxy-s7-edge-3.jpg" alt=""></li>
+                                <li><img style="border: none;" id="img4" onclick="change_img('img4')"
+                                        src="Image_dalis/galaxy-s7-edge-4.jpg" alt=""></li>
+
+                            </ul>
+                        </div>
+                        <div class="img-slide2">
+                            <div class="img-show">
+                                <img id="slide-show" src="Image_dalis/galaxy-s7-edge-1black.jpg" alt="">
+                            </div>
+                            <ul class="sub-img-show">
+                                <li><img style="border: none;" id="img1" onclick="change_img('img5')"
+                                        src="Image_dalis/galaxy-s7-edge-1black.jpg" alt=""></li>
+                                <li><img style="border: none;" id="img2" onclick="change_img('img6')"
+                                        src="Image_dalis/galaxy-s7-edge-2black.jpg" alt=""></li>
+                                <li><img style="border: none;" id="img3" onclick="change_img('img7')"
+                                        src="Image_dalis/galaxy-s7-edge-3black.jpg" alt=""></li>
+                          
+
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- share -->
+                    <div class="share">Chia sẻ: <a href="">
+                            <a href=""><i class="fab fa-facebook-square"></i></a><i
+                                class="fab fa-google-plus-g"></i></a></div>
+                    <!-- end-share -->
+                </div>
+                <!-- END image-item -->
+
+
+
+                <!-- sub-item -->
+                <div class="sub-item">
+                    <div class="name-item">Dán da
+                        Samsung Galaxy S7 Edge </div>
+                    <!-- status brand -->
+                    <ul class="status-brand">
+                        <li>Tình trạng: &nbsp; <h style="color: rgb(150, 228, 113);">Còn hàng</h>
+                        </li>
+                        <li>Thương hiệu: &nbsp; <h style="color: rgb(232, 24, 84);">Samsung</h>
+                        </li>
+                    </ul>
+                    <!--end status brand -->
+                    <div class="price-item">
+                        200.000₫
+                    </div>
+                    <div class="switch-color">
+                        <div style="width: 100px;height: 45px;font-weight: bold;">Màu sắc:</div>
+                        <label for=""><img onclick="check()" id="img-check1" src="Image_dalis/galaxy-s7-edge-18.jpg"
+                                alt=""><i style="display: block;" id="check1" class="fas fa-check"></i></label>
+                        <label for=""><img onclick="check()" id="img-check2" src="Image_dalis/galaxy-s7-edge-1black.jpg"
+                                alt=""><i id="check2" class="fas fa-check"></i></label>
+
+                    </div>
+                    <!-- quantity -->
+                    <div class="quantity">
+                        <input style="width:60px; height:37px; text-align: center;" value="1" type="text"
+                         ,id="qty">
+                        <ul>
+                            <li><button id="add">+</button></li>
+                            <li><button id="minusQuantity">- </button></li>
+                        </ul>
+                        <div class="buy-now"><a href="">MUA NGAY</a> </div>
+                    </div>
+                    <!--End quantity -->
+                    <!-- profile-item -->
+                    <div class="profile-item">
+                        <ul>
+                            <li>Chất liệu: Da bò thật</li>
+                            <li>Độ dầy: 0.6 ~ 0.8mm</li>
+                            <li>Trọng lượng : 14g</li>
+                            <li>Công nghệ: Cắt, khắc bằng Laser cho độ chính xác tuyệt đối trên sản phẩm</li>
+                            <li>May thủ công hoàn toàn với những đôi bàn tay khéo léo, mỗi đường kim mũi chỉ thể hiện sự
+                                tâm huyết của người nghệ sĩ trên tác phẩm của mình, mang đến trải nghiệm tốt nhất cho
+                                người dùng</li>
+                            <li>Sản xuất: Việt Nam.</li>
+                        </ul>
+                    </div>
+
+                    <!-- end profile-item -->
+
+
+
+                </div>
+
+                <!-- END sub-item -->
+            </div>
+            <!--END-product-item -->
+
+            <div class="describe">
+                <ul>
+                    <li style="border-bottom:4px solid red;" id="s-b1">Mô tả sản phẩm</li>
+                    <li id="s-b2">Giới thiệu</li>
+                </ul>
+            </div>
+            <div class="sub-describe">
+                <div class="sub-describe1">
+                    <ul>
+                        <li>Miếng dán da điện thoại Samsung Galaxy S7 Edge tạo cảm giác thân thiện cho thiết bị với
+                            đường cắt laser chuẩn xác bo theo đường cong của điện thoại, không chỉ tạo sự êm, chắc tay
+                            khi cầm sản phẩm, các bạn có thể khắc các họa tiết, hình ảnh yêu thích lên chính sản phẩm
+                            của mình với nhiều màu da trẻ trung cá tính.</li>
+                        <li>Chất liệu: Da bò thật</li>
+                        <li>Độ dầy: 0.6 ~ 0.8mm</li>
+                        <li>Trọng lượng : 14g</li>
+                        <li>Công nghệ: Cắt, khắc bằng Laser cho độ chính xác tuyệt đối trên sản phẩm</li>
+                        <li>May thủ công hoàn toàn với những đôi bàn tay khéo léo, mỗi đường kim mũi chỉ thể hiện sự tâm
+                            huyết của người nghệ sĩ trên tác phẩm của mình, mang đến trải nghiệm tốt nhất cho người dùng
+                        </li>
+                        <li>Sản xuất: Việt Nam.</li>
+
+                    </ul>
+                </div>
+                <div class="sub-describe2">
+                    <ul>
+                        <li>Các sản phẩm được Dalis định hướng phát triển chính bao gồm các dòng sản phẩm cho thiết bị
+                            công nghệ và dòng sản phẩm thời trang.</li>
+                        <li>
+                            <ul>
+                                <li> • Dòng sản phẩm công nghệ có các sản phẩm bao da, miếng dán da cho điện thoại, máy
+                                    tính bảng, laptop,...</li>
+                                <li> • Dòng sản phẩm thời trang có ví da, túi xách,...</li>
+                            </ul>
+                        </li>
+                        <li>Để phục vụ nhiều đối tượng khách hàng khác nhau Dalis có nhiều sự lựa chọn chất liệu da thật
+                            khác nhau như da bò, da trăn, da đà điểu, da cá sấu, da rắn, da cá,...Mỗi loại da có đặc
+                            tính và vẻ đẹp khác nhau.</li>
+                    </ul>
+                </div> 
+            </div>
+
+
+        </div>
+        <!-- END body-product-left -->
+
+
+        <!-- body-product-right -->
+        <div class="body-product-right">
+            <div class="phone-hotline">
+                <ul>
+                    <li style="font-size: 16px;font-weight: bold;">Bạn cần hỗ trợ?</li>
+                    <li style="font-size: 12px;">Lời khuyên,sản phẩm...</li>
+                    <li style="font-size: 24px;font-weight: bold;">0787355533</li>
+                    <li><a style="font-size: 12px; color:  rgb(232, 24, 84);" href="">Liên hệ</a></li>
+                </ul>
+                <div class="icon-phone"><a style="color: yellowgreen;" href=""><i class="fas fa-phone"></i></a></div>
+            </div>
+        </div>
+        <!-- END body-product-right -->
+    </div>
+
+    <!-- end-body-product -->
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+    </script>
+    <div class="similar-product">
+        <div class="title-similar-product">SẢN PHẨM CÙNG LOẠI</div>
+        <div class="item-similar-product">
+
+            <!--  -->
+            
+                  
+                    <!-- slide1 -->
+                    <div class="category-productsp">
+                        <div class="category-productsp-item">
+                            <!-- item -->
+                            <div class="category-boxsp"> <a href=""><img src="Image_dalis/hot-product-item2-2.jpg" alt=""></a>
+                                <ul>
+                                    <li>
+                                        <a href=""><i class="bi bi-basket"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href=""> <i class="bi bi-search"></i></a>
+                                    </li>
+                                </ul>
+        
+                            </div>
+                            <!-- end-item -->
+                            <div class="sub-category-productsp-item"><a href="">Dán da điện thoại Sony Xperia X</a></div>
+                            <div class="price-category-productsp">
+                                Liên Hệ
+                            </div>
+                        </div>
+                        <div class="category-productsp-item">
+                            <div class="category-boxsp"> <a href=""><img src="Image_dalis/hot-product-item2-3.jpg" alt=""></a>
+                                <ul>
+                                    <li>
+                                        <a href=""><i class="bi bi-basket"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href=""> <i class="bi bi-search"></i></a>
+                                    </li>
+                                </ul>
+        
+                            </div>
+                            <div class="sub-category-productsp-item"><a href="">Bao da đeo lưng điện thoại dưới 5"</a>
+        
+        
+                            </div>
+                            <div class="price-category-productsp">
+                                500.000₫
+                            </div>
+                        </div>
+                        <div class="category-productsp">
+                        <div class="category-productsp-item">
+                            <div class="category-boxsp"><a href=""><img src="Image_dalis/hot-product-item3-1.jpg" alt=""></a>
+                                <ul>
+                                    <li>
+                                        <a href=""><i class="bi bi-basket"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href=""> <i class="bi bi-search"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="sale-category-productsp">SALE</div>
+        
+                            <div class="sub-category-productsp-item"><a href="">Ví da điện thoại iPhone 7 Plus</a></div>
+                            <div class="price-category-productsp">
+                                600.000₫
+                            </div>
+                        </div>
+                        <div class="category-productsp-item">
+                            <!-- item -->
+                            <div class="category-boxsp"> <a href=""><img src="Image_dalis/hot-product-item3-2.jpg" alt=""></a>
+                                <ul>
+                                    <li>
+                                        <a href=""><i class="bi bi-basket"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href=""> <i class="bi bi-search"></i></a>
+                                    </li>
+                                </ul>
+        
+                            </div>
+                            <!-- end-item -->
+                            <div class="sub-category-productsp-item"><a href="">Bao da điện thoại Sony Xperia XZ</a></div>
+                            <div class="price-category-productsp">
+                                600.000₫
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- end slide 1 -->
+                  </div>
+                
+                
+          
+              
+              </div>
+            
+             
+            <!--  -->
+        </div>
+    </div>
+
+
+
+    <!-- footer -->
+    <footer>
+        <div class="contact-footer">
+            <!-- contact-footer -->
+            <div class="contact-footer-left">
+                <h4>LIÊN HỆ</h4>
+                <div style="height: 48px;">Chuyên các sản phẩm về da:ví Sen,dán trang trí,bao da,ví da cho điện thoại.
+                </div>
+                <ul>
+                    <li><a href=""><i class="bi bi-geo-alt-fill"></i> 70 Lu Gia,Ward 15,District 11,Ho Chi Minh City</a>
+                    </li>
+                    <li><a href=""><i class="bi bi-telephone-fill"></i> 1900 6750</a></li>
+                    <li><a href=""><i class="bi bi-envelope"></i> support@sapo.vn</a></li>
+                </ul>
+            </div>
+            <!--END contact-footer-left -->
+
+
+            <!-- contact-footer-right -->
+            <div class="contact-footer-right">
+                <div class="product-contact">
+                    <div class="sub-product-contact">
+                        <h4>VỀ CHÚNG TÔI</h4>
+                        <ul>
+                            <li><a href="">Trang chủ</a></li>
+                            <li><a href="">Sản phẩm</a></li>
+                            <li><a href="">Bao da</a></li>
+                            <li><a href="">Ví da & Túi xách</a></li>
+                            <li><a href="">Tạp chí</a></li>
+                            <li><a href="">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="product-contact">
+                    <div class="sub-product-contact">
+                        <h4>THÔNG TIN</h4>
+                        <ul>
+                            <li><a href="">Trang chủ</a></li>
+                            <li><a href="">Sản phẩm</a></li>
+                            <li><a href="">Bao da</a></li>
+                            <li><a href="">Ví da & Túi xách</a></li>
+                            <li><a href="">Tạp chí</a></li>
+                            <li><a href="">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="product-contact">
+                    <div class="sub-product-contact">
+                        <h4>HỖ TRỢ</h4>
+                        <ul>
+                            <li><a href="">Trang chủ</a></li>
+                            <li><a href="">Sản phẩm</a></li>
+                            <li><a href="">Bao da</a></li>
+                            <li><a href="">Ví da & Túi xách</a></li>
+                            <li><a href="">Tạp chí</a></li>
+                            <li><a href="">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="product-contact">
+                    <div class="sub-product-contact">
+                        <h4>KẾT NỐI</h4>
+                        <ul>
+                            <li><a href=""><i class="bi bi-facebook"></i> Facebook</a></li>
+                            <li><a href=""><i class="bi bi-twitter"></i> Twitter</a></li>
+                            <li><a href=""><i class="bi bi-instagram"></i> Instagram</a></li>
+                            <li><a href=""><i class="bi bi-google"></i> Google Plus</a></li>
+                            <li><a href=""><i class="bi bi-pinterest"></i> Pinterest</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+            </div>
+            <!-- contact-footer-right -->
+        </div>
+        <!-- END Contact-footer -->
+
+        <div class="contact-footer-bottom">
+            <div style="font-size: 12px;line-height: 32px;margin-top: 20px;" class="contact-footer-bottom-left">
+                <i class="bi bi-c-circle"></i> Bản quyền thuộc Kiền Vàng | Cung cấp bởi Sapo
+            </div>
+            <div class="contact-footer-bottom-right">
+                <ul>
+                    <li><a href=""><i class="fab fa-cc-visa"></i></a></li>
+                    <li><a href=""><i class="fab fa-cc-paypal"></i></a></li>
+                    <li><a href=""><i class="fab fa-cc-mastercard"></i></a></li>
+                    <li><a href=""><i class="fab fa-cc-discover"></i></a></li>
+                    <li><a href=""><i class="fab fa-cc-jcb"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+</body>
+
+</html>

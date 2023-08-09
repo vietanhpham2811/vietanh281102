@@ -1,0 +1,547 @@
+﻿@using QlBanOpDaDienThoai.Models;
+@using X.PagedList.Web.Common;
+@functions{
+      public Net20ProjectContext db = new Net20ProjectContext();
+    public List<Category> Categories()
+    {
+        List<Category> list_record = db.Categories.Where(item=>item.ParentId == 0).OrderByDescending(item=>item.Id).ToList();
+        return list_record;
+    }
+    public List<Category> SubCategories(int category_id)
+    {
+        List<Category> list_record = db.Categories.Where(item=>item.ParentId == category_id).OrderByDescending(item=>item.Id).ToList();
+        return list_record;
+    }
+    public List<Adv> advs()
+    {
+        List<Adv> list_record = db.Advs.Where(item => item.Position == 4).OrderBy(item => item.Id).ToList();
+        return list_record;
+    }
+
+
+    public int GetNumberProduct(int category_id)
+    {
+        int number_product = (from product in db.Products join category_product in db.CategoriesProducts 
+            on product.Id equals category_product.ProductId join category in db.Categories 
+            on category_product.CategoryId equals category.Id 
+            where category_product.CategoryId == category_id select product).Count();
+        return number_product;
+    }  
+    public List<Slide> Slides()
+    {
+        List<Slide> list_record = db.Slides.OrderByDescending(item => item.Id).ToList();
+        return list_record;
+    }
+    public List<Tag> GetTags()
+    {
+        List<Tag> list_record = db.Tags.OrderByDescending(item => item.Id).ToList();
+        return list_record;
+    }
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="~/layoutbaitap/shop.css">
+    <link rel="stylesheet" href="~/layoutbaitap/home.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <script src="~/layoutbaitap/dalis.js"></script>
+</head>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/647d7ab57957702c744bc8ec/1h252eldr';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+<body style="background-color: white;">
+
+    <!-- Swiper JS -->
+
+    <!-- start header -->
+    <div class="header">
+        <!-- top header -->
+        <div class="top-header">
+            <div class="sub-top-header"><a href=""><i class="bi bi-facebook"></i></a> <a href=""><i
+                        class="bi bi-twitter"></i></a> <a href=""><i class="bi bi-instagram"></i></a> <a href=""> <i
+                        class="bi bi-google"></i></a> <a href=""> <i class="bi bi-pinterest"></i></a> Chào mừng bạn đến
+                với <a style="text-decoration: none;font-size: 14px;color: rgb(232, 24, 84);font-weight: bold;"
+                    href="">Ant Fashion</a>. Cùng vui mua sắm</div>
+        </div>
+        <!-- end top header -->
+        <!-- center-header -->
+        <div class="center-header">
+            <div class="logo-dalis"> <img src="~/Layoutbaitap/Image_dalis/logo-dalis150x78.jpg" alt=""></div>
+
+
+            <div class="header-hotline">
+                <div class="hotline-online">
+                    <div><i style="font-size: 30px; color: rgb(3, 145, 253);" class="bi bi-chat-text-fill"> </i> </div>
+                    <div> Hỗ trợ trực tuyến <br> Gọi: <a href="" style="color: rgb(232, 24, 84) ;font-size: 12px;">0123
+                            456 789</a> </div>
+                </div>
+
+                <div class="open-time">
+                    <div><img src="/LayoutBaitap/Image_dalis/opentime35x35.png" alt=""></div>
+                    <div style="font-size: 14px;">T2-T7 9.00 - 18.00 <br> <a
+                            style="color: rgb(198, 197, 197) ;font-size: 12px;" href="">Chủ nhật
+                            NGHỈ</a> </div>
+                </div>
+
+            </div>
+
+            <div class="search">
+                <input type="text" id="search" name="search" value="" placeholder="Search here...">
+               <button style="background-color: white; height: 44px; border: none;" onclick="location.href='/search/searchproducts?key='+document.getElementById('search').value;" ><i class="bi bi-search"></i></button>
+
+            </div>
+            <div class="login"><a href=""><i class="bi bi-person-circle"></i>
+                    <ul class="sub-login">
+                        <li>
+                            <a href="/Account/login">Đăng Nhập</a>
+                        </li>
+                        <li>
+                            <a href="/Account/register">Đăng ký</a>
+                        </li>
+                    </ul>
+                </a>
+
+
+
+            </div>
+
+
+        </div>
+        <!-- end-center-header -->
+
+        <!-- start menu -->
+        <div class="menu">
+            <div class="menu-left">
+                <ul>
+                    <li><a href="/home/index">TRANG CHỦ</a></li>
+                    <li class="menu-product"><a href="/products/category">SẢN PHẨM<i class="bi bi-chevron-right"></i></a>
+                        <!-- submenu -->
+                                     <div class="sub-menu">
+                        <!-- <div> -->
+                        @{
+                            List<Category> list_category = Categories();
+                        } 
+                        <ul class="sub-menu-left">
+                            <h4 style="font-family: Arial;">LOẠI TRANG SẢN PHẨM</h4>
+                        @foreach (var item in list_category)
+                        {
+                                <li><a href="/Products/Category/@item.Id">@item.Name</a></li>
+
+                            }
+                       
+                        
+                         
+                        </ul>
+
+                        <ul class="sub-menu-right">
+
+                            <h4 style="font-family: Arial;">MIẾNG DÁN DA</h4>
+
+                            <li><a href="">Bản đặc biệt</a></li>
+                            <li><a href="">Apple</a></li>
+                            <li><a href="">SamSung</a></li>
+                            <li><a href="">Blackberry</a></li>
+
+                            <li><a href="">Sony</a></li>
+                            <li><a href="">Laptop</a></li>
+                            <li><a href="">Nokia</a></li>
+                        </ul>
+                        <!-- </div> -->
+
+                    </div>
+
+                        <!-- end sub-menu -->
+                    </li>
+                    <li><a href="">BAO DA</a></li>
+                    <li><a href="/news/index">VÍ DA & TÚI XÁCH</a></li>
+                    @*<li><a href="">TẠP CHÍ</a></li>*@
+                    <a href="/WishList/index"><i  class="bi bi-heart-fill"></i></a>
+                    <li><a href="/contact/index">LIÊN HỆ</a></li>
+
+                </ul>
+            </div>
+            <div class="menu-right">
+                <ul>
+                    <li><a href="/cart/index"><i style="font-size: 25px;" class="bi bi-cart4"></i></a> </li>
+                    <li><a href="/cart/index">Giỏ Hàng</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- end menu -->
+        <div>
+
+        </div style="border:1px solid">
+        <!-- end menu -->
+        <!-- end header -->
+
+
+        <div class="sub-link-product">
+            Trang chủ<i class="bi bi-chevron-right"></i><a href="">Tất cả sản phẩm</a>
+        </div>
+        <div style="height:1300px;">
+            <div class="content-product">
+                <!-- content-left -->
+                <div class="content-left">
+                    <h2>Lọc sản phẩm</h2>
+                    <div class="content-brand">Thương hiệu</div>
+                    <div class="filter">
+                        <ul>
+                            	@{
+								List<Category> list_categories = Categories();
+							}
+                          	@foreach(var item in list_categories)
+							{
+									List<Category> list_sub_categories = SubCategories(item.Id);
+									<li class="category-item has-child-cate">
+									<a href="/Products/Category/@item.Id" class="cate-link">@item.Name (@GetNumberProduct(item.Id))</a>
+										@if (list_sub_categories.Count > 0)
+										{
+											<span class="toggle-control">+</span>
+											<ul class="sub-cate">
+												@foreach (var itemSub in list_sub_categories)
+												{
+												<li class="category-item"><a href="/Products/Category/@itemSub.Id" class="cate-link">@itemSub.Name (@GetNumberProduct(itemSub.Id))</a></li>
+												}
+											</ul>
+										}
+									</li>
+							}	
+                        </ul>
+                    </div>
+
+                    <div class="price-product">
+                        <h2>Giá sản phẩm</h2>
+                        <div class="sub-price">
+                            <div style="  width: 262px;
+                            height: 27px;
+                            display: flex;"> <input type="number" id="fromPrice" placeholder="0"> _
+                                <input  type="number" min="0" id="toPrice">
+                            </div>
+                            <button onclick="location.href='/Search/SearchPrice?fromPrice='+document.getElementById('fromPrice').value+'&toPrice='+document.getElementById('toPrice').value;" class="filter-price">Lọc giá</button>
+
+                        </div>
+                    </div>
+                    <!-- color-filter -->
+               @*     <div class="color-filter">
+                        <h2>Màu sắc</h2>
+                        <ul>
+                            <li>
+                                <a href="">
+                                    <div class="item-color" style="background-color: yellow;"></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <div class="item-color" style="background-color: red;"></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <div class="item-color" style="background-color: aliceblue;"></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <div class="item-color" style="background-color:  brown;"></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <div class="item-color" style="background-color: tomato;"></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <div class="item-color" style="background-color: darkmagenta;"></div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>*@
+                    <!-- end color-filter -->
+
+                    <!-- material-filter -->
+                    <div class="material-filter">
+                        <h2>Chất liệu</h2>
+                        <div class="sub-material">
+                            <ul style="display:block">
+                            @*   	@{
+									List<Tag> list_tags = GetTags();
+									int tag_id = 0;
+									try
+									{
+										//lấy id truyền từ url
+										tag_id = Convert.ToInt32(Context.Request.RouteValues["id"]);
+									}
+									catch{; }
+                                    class="filter-link @if(item.Id == tag_id){<text>active</text>}"
+								}*@
+                                @{
+                                	List<Tag> list_tags = GetTags();
+
+                                }
+                             @foreach(var item in list_tags)
+								{
+									<li class="list-item"><a  href="/Search/SearchTag/@item.Id">@item.Name</a></li>
+								}
+                               
+                           
+                           
+                        </ul>
+
+                        </div>
+                    </div>
+                    <!--ENd material-filter -->
+                    <!-- image-filter -->
+                    <div class="image-filter"><a href="">
+                            <div class="swiper mySwiper">
+                                <div class="swiper-wrapper">
+                                    @{
+                                        List<Adv> list_adv = advs();
+                                    }
+                                    @foreach(var item in list_adv)
+                                    {
+                                    <div class="swiper-slide"><img src="~/Upload/Adv/@item.Photo" alt=""></div>
+                                        
+                                    }
+                                    
+                                </div>
+                            </div>
+                    </div>
+                    <!-- Swiper JS -->
+                    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+                    <!-- Initialize Swiper -->
+                    <script>
+                        var swiper = new Swiper(".mySwiper", {
+                            effect: "cards",
+                            grabCursor: true,
+                        });
+                    </script>
+                    <!--END image-filter -->
+                    <div class="menu-filter">
+                        <h4>Danh mục</h4>
+                        <ul>
+                            <li><a href="">Trang chủ</a></li>
+                            <li><a href="">Sản phẩm</a> <i style="margin-left: 165px;" id="sub-menu-filter"
+                                    class="bi bi-chevron-down"></i></li>
+                            <!-- sub-menu-filter -->
+                            <ul class="sub-menu-filter1">
+                                <li><a href=""></a>Loại trang sản phẩm</li>
+                                <li><a href=""></a>Miếng dán da</li>
+                            </ul>
+                            <!-- end sub menu-filter -->
+                            <li><a href="">Bao da</a></li>
+                            <li><a href="">Ví da & Túi xách</a></li>
+                            <li><a href="">Tạp chí</a></li>
+                            <li><a href="/contact/index">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <!--End content-left -->
+
+                <!-- content-right -->
+                <div class="content-right">
+                    <!-- cat banner -->
+                           <div class="cat-banner">
+                <div class="swiper mySwiper1">
+                    <div class="swiper-wrapper">
+                        @{
+                                        List<Slide> list_slides = Slides();
+                                    }
+                                @foreach(var item in list_slides)
+                                {
+                                     <div class="swiper-slide"><img src="~/Upload/Slides/@item.Photo" alt=""></div>
+                                    
+                                }
+
+                        <
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
+                <!-- Swiper JS -->
+                <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+                <!-- Initialize Swiper -->
+                <script>
+                    var swiper = new Swiper(".mySwiper1", {
+                        spaceBetween: 30,
+                        centeredSlides: true,
+                        autoplay: {
+                            delay: 2500,
+                            disableOnInteraction: false,
+                        },
+                        pagination: {
+                            el: ".swiper-pagination",
+                            clickable: true,
+                        },
+                        navigation: {
+                            nextEl: ".swiper-button-next",
+                            prevEl: ".swiper-button-prev",
+                        },
+                    });
+                </script>
+            </div>
+                    
+
+
+                 
+                    <!-- end cat-banner -->
+                @RenderBody()
+                  
+                </div>
+                <!--End content-right -->
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <!-- footer -->
+    <footer>
+        <div class="contact-footer">
+            <!-- contact-footer -->
+            <div class="contact-footer-left">
+                <h4>LIÊN HỆ</h4>
+                <div style="height: 48px;">Chuyên các sản phẩm về da:ví Sen,dán trang trí,bao da,ví da cho điện thoại.
+                </div>
+                <ul>
+                    <li><a href=""><i class="bi bi-geo-alt-fill"></i> 70 Lu Gia,Ward 15,District 11,Ho Chi Minh City</a>
+                    </li>
+                    <li><a href=""><i class="bi bi-telephone-fill"></i> 1900 6750</a></li>
+                    <li><a href=""><i class="bi bi-envelope"></i> support@sapo.vn</a></li>
+                </ul>
+            </div>
+            <!--END contact-footer-left -->
+
+
+            <!-- contact-footer-right -->
+            <div class="contact-footer-right">
+                <div class="product-contact">
+                    <div class="sub-product-contact">
+                        <h4>VỀ CHÚNG TÔI</h4>
+                        <ul>
+                            <li><a href="">Trang chủ</a></li>
+                            <li><a href="">Sản phẩm</a></li>
+                            <li><a href="">Bao da</a></li>
+                            <li><a href="">Ví da & Túi xách</a></li>
+                            <li><a href="">Tạp chí</a></li>
+                            <li><a href="">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="product-contact">
+                    <div class="sub-product-contact">
+                        <h4>THÔNG TIN</h4>
+                        <ul>
+                            <li><a href="">Trang chủ</a></li>
+                            <li><a href="">Sản phẩm</a></li>
+                            <li><a href="">Bao da</a></li>
+                            <li><a href="">Ví da & Túi xách</a></li>
+                            <li><a href="">Tạp chí</a></li>
+                            <li><a href="">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="product-contact">
+                    <div class="sub-product-contact">
+                        <h4>HỖ TRỢ</h4>
+                        <ul>
+                            <li><a href="">Trang chủ</a></li>
+                            <li><a href="">Sản phẩm</a></li>
+                            <li><a href="">Bao da</a></li>
+                            <li><a href="">Ví da & Túi xách</a></li>
+                            <li><a href="">Tạp chí</a></li>
+                            <li><a href="">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="product-contact">
+                    <div class="sub-product-contact">
+                        <h4>KẾT NỐI</h4>
+                        <ul>
+                            <li><a href=""><i class="bi bi-facebook"></i> Facebook</a></li>
+                            <li><a href=""><i class="bi bi-twitter"></i> Twitter</a></li>
+                            <li><a href=""><i class="bi bi-instagram"></i> Instagram</a></li>
+                            <li><a href=""><i class="bi bi-google"></i> Google Plus</a></li>
+                            <li><a href=""><i class="bi bi-pinterest"></i> Pinterest</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+            </div>
+            <!-- contact-footer-right -->
+        </div>
+        <!-- END Contact-footer -->
+
+        <div class="contact-footer-bottom">
+            <div style="font-size: 12px;line-height: 32px;margin-top: 20px;" class="contact-footer-bottom-left">
+                <i class="bi bi-c-circle"></i> Bản quyền thuộc Kiền Vàng | Cung cấp bởi Sapo
+            </div>
+            <div class="contact-footer-bottom-right">
+                <ul>
+                    <li><a href=""><i class="fab fa-cc-visa"></i></a></li>
+                    <li><a href=""><i class="fab fa-cc-paypal"></i></a></li>
+                    <li><a href=""><i class="fab fa-cc-mastercard"></i></a></li>
+                    <li><a href=""><i class="fab fa-cc-discover"></i></a></li>
+                    <li><a href=""><i class="fab fa-cc-jcb"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+    <!--End content-product -->
+
+
+
+</body>
+
+
+</html>
+
+
+
+

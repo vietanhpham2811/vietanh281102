@@ -1,0 +1,813 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout1.cshtml";
+}
+@using QlBanOpDaDienThoai.Models;
+@functions {
+    public Net20ProjectContext db = new Net20ProjectContext();
+    public string GetCategory(int? product_id)
+    {
+        string category_name = "";
+        var record = from product in db.Products
+                     join category_product in db.CategoriesProducts
+          on product.Id equals category_product.ProductId
+                     join category in db.Categories
+          on category_product.CategoryId equals category.Id
+                     where product.Id == product_id
+                     select category;
+        foreach (var item in record)
+        {
+            category_name += item.Name;
+        }
+        return category_name;
+    }
+    public string GetNameCategory(int? product_id)
+    {
+        string categoryname = "";
+        var record = from product in db.Products
+                     join category_product in db.CategoriesProducts
+                    on product.Id equals category_product.ProductId
+                     join category in db.Categories
+                    on category_product.CategoryId equals category.Id
+                     where category.ParentId == 0
+                     where product.Id == product_id
+                     select category;
+
+        foreach(var item in record)
+        {
+            categoryname += item.Name;
+        }
+        return categoryname;
+    }
+    public List<Product> GetProduct(string? categoryname)
+    {
+        var record = from product in db.Products
+                     join category_product in db.CategoriesProducts
+                    on product.Id equals category_product.ProductId
+                     join category in db.Categories
+                    on category_product.CategoryId equals category.Id
+                     where category.Name == categoryname
+                     select product;
+        return record.Skip(0).Take(5).ToList();
+    }
+    public int GetRate(int? id, int? star)
+    {
+        int result = db.Ratings.Where(item => item.ProductId == id && item.Star == star).Count();
+        return result;
+
+    }
+}
+
+
+<div style="margin-top:30px" class="body-product">
+
+    <!--body-product-left -->
+    <div class="body-product-left">
+        <!-- product-item -->
+        <div class="product-item">
+            <!-- image-item -->
+            <div onload="onload()" class="image-product-item">
+                <div class="img-slide">
+                    <div class="img-slide1">
+                        <div class="img-show">
+                            <img id="slide-show" src="~/Upload/Products/@Model.Photo" alt="">
+                        </div>
+                        @*  <ul class="sub-img-show">
+                        <li>
+                        <img style="border: none;" id="img1" onclick="change_img('img1')"
+                        src="~/layoutbaitap/image_dalis/hot-product-item4-3.jpg" alt="">
+                        </li>
+                        <li>
+                        <img style="border: none;" id="img2" onclick="change_img('img2')"
+                        src="~/LayoutBaiTap/Image_dalis/galaxy-s7-edge-2.jpg" alt="">
+                        </li>
+                        <li>
+                        <img style="border: none;" id="img3" onclick="change_img('img3')"
+                        src="Image_dalis/galaxy-s7-edge-3.jpg" alt="">
+                        </li>
+                        <li>
+                        <img style="border: none;" id="img4" onclick="change_img('img4')"
+                        src="Image_dalis/galaxy-s7-edge-4.jpg" alt="">
+                        </li>
+
+                        </ul>*@
+                    </div>
+                    <div class="img-slide2">
+                        <div class="img-show">
+                            <img id="slide-show" src="Image_dalis/galaxy-s7-edge-1black.jpg" alt="">
+                        </div>
+                        @* <ul class="sub-img-show">
+                        <li>
+                        <img style="border: none;" id="img1" onclick="change_img('img5')"
+                        src="Image_dalis/galaxy-s7-edge-1black.jpg" alt="">
+                        </li>
+                        <li>
+                        <img style="border: none;" id="img2" onclick="change_img('img6')"
+                        src="Image_dalis/galaxy-s7-edge-2black.jpg" alt="">
+                        </li>
+                        <li>
+                        <img style="border: none;" id="img3" onclick="change_img('img7')"
+                        src="Image_dalis/galaxy-s7-edge-3black.jpg" alt="">
+                        </li>
+
+
+                        </ul>*@
+                    </div>
+                </div>
+                <!-- share -->
+                <div class="share">
+                    Chia sẻ: <a href="">
+                        <a href=""><i class="fab fa-facebook-square"></i></a><i class="fab fa-google-plus-g"></i>
+                    </a>
+                </div>
+                <!-- end-share -->
+            </div>
+            <!-- END image-item -->
+            <!-- sub-item -->
+            <div class="sub-item">
+                <div class="name-item">
+                    @Model.Name
+                </div>
+                <!-- status brand -->
+                <ul class="status-brand">
+                    <li>
+                        Tình trạng: &nbsp; <h style="color: rgb(150, 228, 113);">Còn hàng</h>
+                    </li>
+
+                    <li>
+                        Giảm giá: &nbsp; <h style="color: rgb(232, 24, 84);">@Model.Discount %</h>
+                    </li>
+                    <li>
+                        Loại sản phẩm: &nbsp; <h style="color: rgb(150, 228, 113);">@Html.Raw(GetCategory(Model.Id))</h>
+                    </li>
+                </ul>
+                <!--end status brand -->
+                <div class="price-item">
+                    @Model.Price đ
+                </div>
+
+                <!-- quantity -->
+                <div class="quantity">
+                    <input id="quantity" style="width:60px; height:37px; text-align: center;" value="1" type="text"
+                           ,id="qty">
+                    <ul>
+                        <li><button id="add">+</button></li>
+                        <li><button id="minus">- </button></li>
+                    </ul>
+
+                    <div class="buy-now"><a href="/cart/buy/@Model.Id">MUA NGAY</a> </div>
+                    <div class="buy-now"><a href="/WishList/Add/@Model.Id"><i class="bi bi-heart-fill"></i></a> </div>
+
+                </div>
+                <script>
+                    $(document).ready(function () {
+                        $("#add").click(function () {
+                            var soluong = $("#quantity").val();
+                            var sl = parseInt(soluong);
+                            var str = sl + 1;
+                            $("#quantity").val(str);
+
+                        })
+
+
+                        $("#minus").click(function () {
+                            var soluong = $("#quantity").val();
+                            var sl = parseInt(soluong);
+                            if (sl == 0) {
+                                return 0;
+                            } else { var str = sl - 1; }
+
+                            $("#quantity").val(str);
+                        })
+
+
+
+                    });
+
+
+                </script>
+                <!--End quantity -->
+                <!-- profile-item -->
+                <div class="profile-item" style="padding:10px;overflow:scroll">
+                    @Html.Raw(Model.Content)
+                </div>
+
+                <!-- end profile-item -->
+
+
+
+            </div>
+
+            <!-- END sub-item -->
+        </div>
+        <!--END-product-item -->
+        @*Review*@
+
+        <style>
+            .product-rating i {
+                color: #efce4a;
+            }
+
+            .product-rating a {
+                color: #333;
+            }
+        </style>
+        <div style="clear: both;"></div>
+        <div class="product-rating">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <a href="#" class="count-review">(@GetRate(Model.Id,1) review)</a>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="product-rating">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <a href="#" class="count-review">(@GetRate(Model.Id,2) review)</a>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="product-rating">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <a href="#" class="count-review">(@GetRate(Model.Id,3) review)</a>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="product-rating">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <a href="#" class="count-review">(@GetRate(Model.Id,4) review)</a>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="product-rating">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <a href="#" class="count-review">(@GetRate(Model.Id,5) review)</a>
+        </div>
+        <div style="clear: both;"></div>
+
+        @*Review*@
+
+
+
+
+        <div class="describe">
+            <ul>
+                <li style="border-bottom:4px solid red;" id="s-b1">Mô tả sản phẩm</li>
+                <li id="s-b2">Giới thiệu</li>
+            </ul>
+        </div>
+        <div class="sub-describe">
+            <div class="sub-describe1">
+                <ul>
+                    <li>
+                    </li>
+
+                    <li>
+                        @Html.Raw(Model.Description)
+
+                    </li>
+                </ul>
+            </div>
+            <div class="sub-describe2">
+                <ul>
+                    <li>
+                        Các sản phẩm được Dalis định hướng phát triển chính bao gồm các dòng sản phẩm cho thiết bị
+                        công nghệ và dòng sản phẩm thời trang.
+                    </li>
+                    <li>
+                        <ul>
+                            <li>
+                                • Dòng sản phẩm công nghệ có các sản phẩm bao da, miếng dán da cho điện thoại, máy
+                                tính bảng, laptop,...
+                            </li>
+                            <li> • Dòng sản phẩm thời trang có ví da, túi xách,...</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Để phục vụ nhiều đối tượng khách hàng khác nhau Dalis có nhiều sự lựa chọn chất liệu da thật
+                        khác nhau như da bò, da trăn, da đà điểu, da cá sấu, da rắn, da cá,...Mỗi loại da có đặc
+                        tính và vẻ đẹp khác nhau.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- END body-product-left -->
+    <!-- body-product-right -->
+    <div class="body-product-right">
+        <div class="phone-hotline">
+            <ul>
+                <li style="font-size: 16px;font-weight: bold;">Bạn cần hỗ trợ?</li>
+                <li style="font-size: 12px;">Lời khuyên,sản phẩm...</li>
+                <li style="font-size: 24px;font-weight: bold;">0787355533</li>
+                <li><a style="font-size: 12px; color:  rgb(232, 24, 84);" href="">Liên hệ</a></li>
+            </ul>
+            <div class="icon-phone"><a style="color: yellowgreen;" href=""><i class="fas fa-phone"></i></a></div>
+        </div>
+    </div>
+    <!-- END body-product-right -->
+</div>
+@*sản phẩm cùng loại*@
+<div>
+    @{
+        string categoryname = GetNameCategory(Model.Id);
+        List<Product> list_product_category = GetProduct(categoryname);
+    }
+    <h3 style="text-align:center;">Sản phẩm cùng loại</h3>
+
+    <div class="category-product" style="width:1200px;display:block">
+
+        @foreach (var item in list_product_category)
+        {
+            <div class="category-product-item" style="float:left;text-align:center;">
+                <div class="category-box">
+                    <a href=""><img src="/Upload/Products/@item.Photo" alt=""></a>
+                    <ul>
+                        <li>
+                            <a href="/Cart/Buy/@item.Id"><i class="bi bi-basket"></i></a>
+                        </li>
+                        <li>
+                            <a href="/wishlist/add/@item.Id">  <i class="bi bi-heart"></i></a>
+
+                        </li>
+                    </ul>
+                </div>
+                <div class="sale-category-product">SALE</div>
+
+                <div class="sub-category-product-item"><a href="/Upload/Products/@item.Photo">@item.Name</a></div>
+                <div class="price-category-product">
+                    @Convert.ToDouble(@item.Price)đ &nbsp;
+                </div>
+            </div>
+        }
+
+
+
+
+
+
+
+    </div>
+
+</div>
+
+<style>
+    .img-show,
+    .img-show img {
+        width: 409px;
+        height: 307px;
+        margin-bottom: 10px;
+    }
+
+</style>
+<script>
+
+    $(document).ready(function () {
+        $("#s-b1").click(function () {
+            $(".sub-describe2").fadeOut(1, function () {
+                $(".sub-describe1").fadeIn()
+                $("#s-b1").css("border-bottom", "4px solid red")
+                $("#s-b2").css("border-bottom", "none")
+
+            })
+        })
+
+        $("#s-b2").click(function () {
+            $(".sub-describe1").fadeOut(1, function () {
+                $(".sub-describe2").fadeIn()
+                $("#s-b2").css("border-bottom", "4px solid red")
+                $("#s-b1").css("border-bottom", "none")
+            })
+        })
+
+
+    })
+
+
+</script>
+<style>
+    .sub-link-product {
+        width: 1140px;
+        margin: auto;
+        line-height: 40px;
+        font-size: 12px;
+    }
+
+    a {
+        color: white;
+    }
+
+    .sub-link-product a {
+        font-size: 12px;
+        color: black;
+    }
+
+        .sub-link-product a:hover {
+            color: rgb(232, 24, 84);
+        }
+
+    .body-product {
+        width: 1140px;
+        margin: auto;
+        padding: 0px 20px 0px 20px;
+        display: flex;
+    }
+
+    .body-product-left {
+        width: 877px;
+    }
+
+    .body-product-right {
+        width: 262px;
+    }
+
+    .product-item {
+        margin-top: 10px;
+        width: 877px;
+        height: 568px;
+        display: flex;
+    }
+
+    .img-slide {
+        position: relative;
+        width: 430px;
+        height: 307px;
+        margin-right: 10px;
+    }
+
+    .img-slide1,
+    .img-slide2 {
+        position: absolute;
+    }
+
+    .img-slide2 {
+        display: none;
+    }
+
+    .img-show,
+    .img-show img {
+        width: 409px;
+        height: 307px;
+        margin-bottom: 10px;
+    }
+
+
+
+    .sub-img-show {
+        padding: 0px;
+    }
+
+        .sub-img-show img {
+            width: 94px;
+            height: 71px;
+        }
+
+            .sub-img-show img:hover {
+                cursor: pointer;
+            }
+
+        .sub-img-show li {
+            display: inline;
+            margin-right: 7px;
+        }
+
+    .share {
+        margin-top: 90px;
+    }
+
+        .share i {
+            margin-right: 10px;
+            color: black;
+        }
+
+            .share i:hover {
+                color: rgb(232, 24, 84);
+            }
+
+    .name-item {
+        margin: auto;
+        width: 408px;
+        height: 68px;
+        font-size: 20px;
+        font-weight: bold;
+        border-bottom: 1px solid rgb(205, 201, 201);
+        margin-bottom: 10px
+    }
+
+    .status-brand {
+        padding: 0px;
+    }
+
+        .status-brand li {
+            list-style: none;
+        }
+
+    .price-item {
+        margin-top: 10px;
+        width: 408px;
+        color: rgb(232, 24, 84);
+        font-size: 30px;
+        font-weight: bold;
+        line-height: 28px;
+    }
+
+    .switch-color {
+        display: flex;
+        width: 190px;
+        height: 45px;
+        margin-top: 20px;
+        line-height: 45px;
+    }
+
+        .switch-color img {
+            width: 35px;
+            height: 35px;
+        }
+
+        .switch-color label {
+            width: 35px;
+            height: 35px;
+            position: relative;
+            margin: 7px;
+        }
+
+        .switch-color i {
+            color: white;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: none;
+        }
+
+        .switch-color img:hover {
+            cursor: pointer;
+        }
+
+    .quantity {
+        margin-top: 10px;
+        width: 207px;
+        height: 40px;
+        display: flex;
+        margin-bottom: 30px;
+    }
+
+        .quantity input {
+            margin-right: 2px;
+            border: 1px solid rgb(149, 143, 143);
+        }
+
+        .quantity ul {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .quantity li {
+            margin-bottom: 2px;
+        }
+
+        .quantity button {
+            background-color: white;
+            font-size: 11px;
+            width: 19px;
+            height: 19px;
+            border: 1px solid rgb(149, 143, 143);
+        }
+
+    .buy-now {
+        width: 151px;
+        height: 40px;
+        background-color: rgb(232, 24, 84);
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        line-height: 40px;
+        margin-left: 7px;
+    }
+
+    .profile-item {
+        width: 408px;
+        height: 258px;
+        background-color: rgb(245, 245, 245);
+    }
+
+    .product-item ul {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .profile-item li {
+        line-height: 25px;
+        margin-left: 20px;
+    }
+
+    .describe {
+        width: 847px;
+        height: 39px;
+        margin: auto;
+        border-bottom: 1px solid rgb(212, 203, 203);
+        margin-bottom: 0px;
+        color: black;
+        line-height: 39px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+        .describe ul {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .describe li {
+            display: inline;
+            margin-left: 20px;
+        }
+
+    .sub-describe,
+    .sub-describe1,
+    .sub-describe2 {
+        width: 847px;
+        height: 262px;
+        margin: auto;
+    }
+
+    .sub-describe {
+        position: relative;
+    }
+
+    .sub-describe1 {
+        text-align: justify;
+        position: absolute;
+    }
+
+    .sub-describe2 {
+        position: absolute;
+        display: none;
+    }
+
+    .sub-describe li {
+        list-style: none;
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .phone-hotline {
+        width: 262px;
+        height: 137px;
+        border: 1px solid rgb(218, 200, 200);
+        display: flex;
+        border-radius: 3px;
+    }
+
+        .phone-hotline ul {
+            width: 153px;
+            margin-left: 10px;
+            padding: 0px;
+        }
+
+        .phone-hotline li {
+            line-height: 32px;
+            list-style: none;
+        }
+
+    .icon-phone {
+        width: 55px;
+        height: 55px;
+        border: 1px solid greenyellow;
+        color: yellowgreen;
+        border-radius: 100%;
+        margin-top: 40px;
+        margin-left: 20px;
+    }
+
+        .icon-phone i {
+            font-size: 25px;
+            margin-top: 15px;
+            margin-left: 15px;
+        }
+
+    .similar-product {
+        width: 1476px;
+        height: 439px;
+        background-color: rgb(251, 251, 251);
+    }
+
+    .title-similar-product {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        padding-top: 48px;
+    }
+
+    .item-similar-product {
+        width: 1170px;
+        height: 284px;
+        margin: auto;
+    }
+
+
+    /* slide */
+
+    /* end slide */
+
+
+
+
+
+    /* category */
+    .category-boxsp i {
+        font-size: 24px;
+        color: black;
+        padding-left: 15px;
+    }
+
+    .category-productsp {
+        width: 847px;
+        /* background-color: antiquewhite; */
+        display: flex;
+        margin-top: 20px;
+    }
+
+    .category-productsp-item {
+        width: 262px;
+        height: 264px;
+        margin: 10px;
+        position: relative;
+    }
+
+    .category-boxsp {
+        width: 262px;
+        height: 196px;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .category-boxsp img {
+            width: 262px;
+            height: 196px;
+            margin: auto;
+        }
+
+    .sub-category-productsp-item {
+        height: 24px;
+        text-align: center;
+    }
+
+        .sub-category-productsp-item a {
+            font-size: 13px;
+            color: black;
+            font-weight: bold;
+            line-height: 24px;
+        }
+
+    .price-category-productsp {
+        width: 264px;
+        height: 27px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 15px;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 27px;
+    }
+
+    .sale-category-productsp {
+        background-color: rgb(232, 24, 84);
+        width: 45px;
+        height: 25px;
+        font-size: 12px;
+        line-height: 25px;
+        text-align: center;
+        position: absolute;
+        top: 10px;
+        color: white;
+    }
+    /* hover category */
+    .category-boxsp ul {
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.4);
+        display: flex;
+        width: 222px;
+        list-style: none;
+        bottom: -57px;
+        transition: bottom 0.3s;
+    }
+
+    .category-boxsp > ul > li {
+        line-height: 40px;
+    }
+
+    .category-boxsp i {
+        margin: 24px;
+    }
+
+    .category-boxsp:hover ul {
+        bottom: -15px;
+    }
+    /* end hover category */
+</style>

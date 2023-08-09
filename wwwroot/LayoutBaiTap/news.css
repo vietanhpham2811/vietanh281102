@@ -1,0 +1,116 @@
+.banner-image-new {
+    width: 1457px;
+    height: 499px;
+    margin: auto;
+    position: relative;
+
+}
+
+.banner-image-new img {
+    width: 100%;
+}
+
+.sub-banner-image-new {
+    width: 738px;
+    height: 122px;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 183px;
+    left: 350px;
+
+}
+
+.sub-banner-image-new ul {
+    padding: 0px;
+}
+
+.sub-banner-image-new li {
+    list-style: none;
+    text-align: center;
+    margin-top: 15px;
+    color: white;
+}
+
+.newspaper-product {
+    width: 1180px;
+    margin: auto;
+    border-bottom: 2px solid rgb(230, 230, 230);
+}
+
+.blog {
+    width: 1200px;
+    height: 541px;
+    margin: auto;
+
+}
+
+.blog h3 {
+    padding: 0px;
+    margin: 0px;
+    font-size: 19px;
+}
+
+.blog-item {
+    width: 555px;
+    height: 541px;
+    float: left;
+    margin-right: 20px;
+    margin-left: 20px;
+
+}
+
+.image-blog {
+    width: 555px;
+    height: 360px;
+    margin: auto;
+    margin-top: 30px;
+
+}
+
+.image-blog img {
+    width: 480px;
+    height: 360px;
+    margin-left: 35px;
+
+}
+
+.post-time {
+    margin-top: 15px;
+    padding: 0px;
+    font-size: 12px;
+    color: rgb(129, 125, 125);
+}
+
+.blog-sub {
+    font-size: 14px;
+}
+
+.blog-tips {
+    width: 1170px;
+    height: 475px;
+    margin: auto;
+}
+
+.blog-tips-item {
+    width: 360px;
+    height: 475px;
+    float: left;
+    margin-right: 30px;
+}
+
+.image-blog-tips {
+    width: 360px;
+    height: 270px;
+}
+
+.image-blog-tips img {
+    width: 100%;
+}
+
+a:hover{
+    color:rgb(232, 24, 84) ;
+}
+.blog-tips-item a:hover{
+    color:rgb(232, 24, 84) ;
+
+}

@@ -1,0 +1,78 @@
+﻿@{
+    Layout = "~/Areas/Admin/views/shared/layout.cshtml";
+}
+@using QlBanOpDaDienThoai.Models
+@model QlBanOpDaDienThoai.Models.Category;
+@functions {
+    Net20ProjectContext db = new Net20ProjectContext();
+    public List<Category> GetCategory()
+    {
+        List<Category> list = db.Categories.Where(item => item.ParentId == 0).ToList();
+        return list;
+    }
+
+}
+
+<div class="col-md-12">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Add edit category</div>
+        <div class="panel-body">
+            @* autocomplete="off" sẽ bỏ các thông tin catche của trình duyệt lưu vào ô textbox *@
+            <form method="post" action="@ViewBag.action" autocomplete="off">
+                <!-- rows -->
+                <div class="row" style="margin-top:5px;">
+                    <div class="col-md-2">Name</div>
+                    <div class="col-md-10">
+                        <input type="text" value="@if(Model != null){
+                        <text>@Model.Name</text>
+                        }" name="name" class="form-control" required>
+                    </div>
+                </div>
+                <!-- end rows -->
+                <!-- rows -->
+                <div class="row" style="margin-top:5px;">
+                    <div class="col-md-2">Category</div>
+                    <div class="col-md-10">
+                        @{
+                            List<Category> listCategories = GetCategory();
+                        }
+                        
+                        <select name="ParentId">
+                         <option value="0">
+                              
+                            </option>  @foreach (var item in listCategories)
+                            {
+                                <option @if (Model != null && item.Id == Model.ParentId)
+                                {
+                                    <text>selected</text>
+                                } value=@item.Id
+                                        >@item.Name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <!-- end rows -->
+                <!-- rows -->
+                <div class="row" style="margin-top:5px;">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10">
+                        <input type="checkbox" name="displayhomepage" @if (Model != null && Convert.ToInt32( Model.DisplayHomePage) == 1)
+                        {
+                            <text>checked</text>
+                        }
+                        <label for="DisplayHomePage">Display Home Page</label>
+                    </div>
+                </div>
+                <!-- end rows -->
+                <!-- rows -->
+                <div class="row" style="margin-top:5px;">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10">
+                        <input type="submit" value="Process" class="btn btn-primary">
+                    </div>
+                </div>
+                <!-- end rows -->
+            </form>
+        </div>
+    </div>
+</div>

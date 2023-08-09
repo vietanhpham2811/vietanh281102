@@ -1,0 +1,485 @@
+body a,
+h1,
+h2,
+h3,
+h4 {
+    font-family: Arial;
+    text-decoration: none;
+}
+
+
+b{
+    text-decoration-line:line-through;font-weight: 100 ;color: rgb(214, 212, 209);
+}
+
+.top-header {
+    width: 1476px;
+    border-bottom: 1px solid rgb(180, 175, 175);
+    height: 31px;
+    margin: 0px;
+}
+
+.sub-top-header {
+    width: 1170px;
+    height: 23px;
+    margin: auto;
+    padding-top: 3px;
+}
+
+.top-header a {
+    font-size: 13px;
+    padding-right: 8px;
+}
+
+.top-header i {
+    color: black;
+    margin: 8px;
+}
+
+.top-header i:hover {
+    color: red;
+}
+
+.center-header {
+    width: 1476px;
+    height: 92px;
+    margin-top: 8px;
+    display: flex;
+
+}
+
+.logo-dalis img {
+    width: 145px;
+    height: 74px;
+    margin-left: 160px;
+}
+
+.header-hotline {
+    width: 457px;
+    height: 68px;
+    margin-left: 130px;
+    /* background-color: aqua; */
+    display: flex;
+
+}
+
+.hotline-online,
+.open-time {
+    display: flex;
+    margin-top: 20px;
+    /* width: 50% ; */
+    width: 175px;
+    height: 36px;
+
+}
+
+.open-time {
+    margin-left: 25px;
+}
+
+.hotline-online {
+    border-right: 1px solid rgb(234, 231, 231);
+}
+
+.hotline-online i {
+    margin-right: 5px;
+}
+
+.open-time img {
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
+}
+
+.search input {
+    width: 300px;
+    height: 40px;
+    float: right;
+    border-radius: 20px;
+
+}
+
+.search i {
+    position: absolute;
+    right: 12px;
+    top: 9px;
+    font-size: 20px;
+    /* background-color: rgb(238, 238, 238); */
+
+
+}
+
+.search {
+    margin-top: 15px;
+    width: 300px;
+    height: 40px;
+    display: flex;
+    position: relative;
+}
+
+.search input:hover {
+    border: 1px solid rgb(232, 24, 84);
+}
+
+.login {
+    width: 40px;
+    height: 40px;
+    margin-top: 20px;
+    margin-left: 30px;
+    /* position: relative;  */
+}
+
+.login i {
+    font-size: 30px;
+    color: rgb(94, 89, 89);
+
+}
+
+.login i:hover {
+    color: rgb(232, 24, 84);
+}
+
+.sub-login {
+    /* position: absolute; */
+
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    width: 100px;
+    visibility: hidden;
+}
+
+.sub-login li {
+    border: 1px solid rgb(212, 208, 208);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.sub-login li a {
+    color: black;
+
+    font-size: 14px;
+
+}
+
+.login:hover .sub-login {
+    visibility: visible;
+}
+
+.sub-login a:hover {
+    color: crimson;
+
+}
+
+.menu {
+    width: 1476px;
+    height: 52px;
+    background-color: rgb(249, 249, 249);
+    /* margin-top: -25px; */
+    display: flex;
+}
+
+.menu-left ul {
+    margin: 0px;
+    margin-left: 110px;
+
+}
+
+.menu-left>ul>li {
+    list-style: none;
+    display: inline;
+    padding: 15px;
+    padding-bottom: 18px;
+}
+
+.menu-left>ul>li>a {
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 52px;
+}
+
+.menu-left>ul>li:hover {
+    background-color: rgb(240, 235, 235);
+}
+
+.menu-left>ul>li>a:hover {
+    color: rgb(232, 24, 84);
+}
+
+.sub-menu {
+    width: 1140px;
+    height: 260px;
+    position: absolute;
+    background-color: white;
+    display: flex;
+    visibility: hidden;
+    z-index: 2;
+}
+
+.sub-menu a:hover {
+    color: rgb(232, 24, 84);
+}
+
+.sub-menu-left {
+    width: 260px;
+    height: 260px;
+
+}
+
+.sub-menu-left {
+    width: 260px;
+    height: 260px;
+}
+
+.sub-menu-left a,
+.sub-menu-right a {
+    float: left;
+    color: rgb(52, 48, 48);
+    font-size: 15px;
+    display: contents;
+}
+
+.sub-menu-left li,
+.sub-menu-right li {
+    list-style: none;
+    margin: 0px 10px 0px 5px;
+    line-height: 24px;
+  
+}
+
+
+.menu-product {
+    position: relative;
+}
+
+.menu-product:hover .sub-menu {
+    visibility: visible;
+}
+
+.menu-right {
+    margin-left: 350px;
+    border-left: 1px solid rgb(217, 214, 214);
+    /* background-color: antiquewhite; */
+    height: 52px;
+}
+
+.menu-right>ul>li {
+    list-style: none;
+    display: inline;
+    /* background-color: aqua; */
+    /* margin-right: 15px; */
+    height: 100%;
+}
+
+.menu-right a {
+    font-size: 12px;
+    font-weight: bold;
+    color: black;
+}
+
+/* footer */
+footer{
+
+    width: 1476px;
+    height: 301px;
+    background-color: rgb(34, 34, 34);
+    margin-top: 40px;
+}
+footer h4{
+    color:rgb(232, 24, 84) ;
+    font-weight: 500;
+}
+footer,a{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+  footer a:hover{
+    color:rgb(232, 24, 84) ;
+  }
+footer ul li{
+    list-style: none;
+    line-height: 30px;
+   
+    
+}
+
+.contact-footer{
+    padding-top: 30px;
+    width: 1170px;
+    height: 204px;
+    display: flex;
+    margin: auto;
+}
+.contact-footer-left ul{
+   
+   padding: 0px; 
+}
+.contact-footer-left li{
+    margin-right: 30px;
+}
+.contact-footer-left{
+    width: 360px;
+    margin-left:153px;
+    margin-left: 0px;
+    margin-top: -10px;
+}
+.contact-footer-right{
+    display: flex;
+    width: 780px;
+
+}
+.contact-footer-right ul{
+    padding: 0px;
+}
+
+.sub-product-contact{
+width: 165px;
+margin-right: 10px;
+margin-top: -5px;
+}
+.sub-product-contact{
+    line-height: 0px;
+}
+.contact-footer-bottom{
+    
+    width: 1170px;
+    height: 32px;
+    display: flex;
+    margin: auto;
+}
+
+.contact-footer-bottom-right{
+    width: 50%;
+    float: right;
+    margin-left: 150px;
+}
+.contact-footer-bottom-right ul{
+    float: right;
+}
+.contact-footer-bottom-right li{
+    display: inline;
+    margin: 3px;
+}
+.contact-footer-bottom-right i{
+    font-size: 20px;
+}
+/* end-footer */
+/* slide */
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* slide */
+.sub-link-product {
+    width: 1140px;
+    margin: auto;
+    line-height: 40px;
+    font-size: 12px;
+
+}
+
+
+
+.sub-link-product a {
+    font-size: 12px;
+    color: black;
+}
+
+.sub-link-product a:hover {
+    color: rgb(232, 24, 84);
+}
+.img-artilce-wrapper{
+text-align: center;
+}
+
+.blog{
+    height: 221px;
+    background-color: rgb(248, 248, 248);
+}
+.blog li{
+    list-style: none;
+    line-height: 30px;
+}
+.blog a{
+    color: black;
+}
+
+.blog a:hover{
+    color: rgb(232, 24, 84);
+
+}
+p>img{
+    width: 100%;
+}
+.article-wrapper{
+    margin-top: 20px;
+}
+.article-wrapper img{
+    text-align: center;
+
+}
+.title-head{
+    font-size: 22px;
+    font-weight: bold;
+}
+h1{
+    font-size: 11px;
+}
+.article-wrapper a{
+    color: black;
+    font-weight: bold;
+}
+.article-wrapper p{
+    font-size: 14px;
+    text-align: justify;
+}
+.form-article{
+margin: 10px;}
+.form-article input{
+    margin-bottom: 10px;
+}
+.button-comment{
+    font-size: 12px;
+    line-height: 30px;
+}
+.button-comment button{
+    background-color:rgb(232, 24, 84); 
+    color: white;
+    font-weight: bold;
+}
+p{
+    line-height: 30px;
+}

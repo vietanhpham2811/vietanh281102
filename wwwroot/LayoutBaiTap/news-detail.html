@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viet Anh</title>
+    <link rel="stylesheet" href="news-detail.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <script src="dalis.js"></script>
+
+</head>
+
+<body style="background-color: white;">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <!-- start header -->
+    <div class="header">
+        <!-- top header -->
+        <div class="top-header">
+            <div class="sub-top-header"><a href=""><i class="bi bi-facebook"></i></a> <a href=""><i
+                        class="bi bi-twitter"></i></a> <a href=""><i class="bi bi-instagram"></i></a> <a href=""> <i
+                        class="bi bi-google"></i></a> <a href=""> <i class="bi bi-pinterest"></i></a> Chào mừng bạn đến
+                với <a style="text-decoration: none;font-size: 14px;color: rgb(232, 24, 84);font-weight: bold;"
+                    href="">Ant Fashion</a>. Cùng vui mua sắm</div>
+        </div>
+        <!-- end top header -->
+        <!-- center-header -->
+        <div class="center-header">
+            <div class="logo-dalis"> <img src="Image_dalis/logo-dalis150x78.jpg" alt=""></div>
+
+
+            <div class="header-hotline">
+                <div class="hotline-online">
+                    <div><i style="font-size: 30px; color: rgb(3, 145, 253);" class="bi bi-chat-text-fill"> </i> </div>
+                    <div> Hỗ trợ trực tuyến <br> Gọi: <a href="" style="color: rgb(232, 24, 84) ;font-size: 12px;">0123
+                            456 789</a> </div>
+                </div>
+
+                <div class="open-time">
+                    <div><img src="Image_dalis/opentime35x35.png" alt=""></div>
+                    <div style="font-size: 14px;">T2-T7 9.00 - 18.00 <br> <a
+                            style="color: rgb(198, 197, 197) ;font-size: 12px;" href="">Chủ nhật
+                            NGHỈ</a> </div>
+                </div>
+
+            </div>
+
+            <div class="search">
+                <input id="txtSearch" type="search" placeholder="Tìm kiếm sản phẩm " value="">
+                <i onclick="search()" class="bi bi-search"></i>
+            </div>
+            <div class="login"><a href=""><i class="bi bi-person-circle"></i>
+                    <ul class="sub-login">
+                        <li>
+                            <a href="">Đăng Nhập</a>
+                        </li>
+                        <li>
+                            <a href="">Đăng ký</a>
+                        </li>
+                    </ul>
+                </a>
+
+
+
+            </div>
+
+
+        </div>
+        <!-- end-center-header -->
+
+        <!-- start menu -->
+        <div class="menu">
+            <div class="menu-left">
+                <ul>
+                    <li><a href="home.html">TRANG CHỦ</a></li>
+                    <li class="menu-product"><a href="shop.html">SẢN PHẨM<i class="bi bi-chevron-right"></i></a>
+                        <!-- submenu -->
+                        <div class="sub-menu">
+                            <!-- <div> -->
+                            <ul class="sub-menu-left">
+                                <h4 style="font-family: Arial;">LOẠI TRANG SẢN PHẨM</h4>
+                                <li><a href="">Sản phẩm có tab cố đinh</a></li>
+                                <li><a href="">Sản phẩm có khuyến mãi</a></li>
+                                <li><a href="">Sản phẩm ảnh đổi màu</a></li>
+                            </ul>
+
+                            <ul class="sub-menu-right">
+
+                                <h4 style="font-family: Arial;">MIẾNG DÁN DA</h4>
+
+                                <li><a href="">Bản đặc biệt</a></li>
+                                <li><a href="">Apple</a></li>
+                                <li><a href="">SamSung</a></li>
+                                <li><a href="">Blackberry</a></li>
+
+                                <li><a href="">Sony</a></li>
+                                <li><a href="">Laptop</a></li>
+                                <li><a href="">Nokia</a></li>
+                            </ul>
+                            <!-- </div> -->
+
+                        </div>
+                        <!-- end sub-menu -->
+                    </li>
+                    <li><a href="">BAO DA</a></li>
+                    <li><a href="">VÍ DA & TÚI XÁCH</a></li>
+                    <li><a href="news.html">TẠP CHÍ</a></li>
+                    <li><a href="">LIÊN HỆ</a></li>
+
+                </ul>
+            </div>
+            <div class="menu-right">
+                <ul>
+                    <li><a href="cart.html"><i style="font-size: 25px;" class="bi bi-cart4"></i></a> </li>
+                    <li><a href="cart.html">Giỏ Hàng</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- end menu -->
+    </div>
+    <!-- end header -->
+
+    <div class="sub-link-product col-xs-12">
+        <a href="home.html">Trang chủ</a><i class="bi bi-chevron-right"></i><a href="shop.html">Tất cả sản phẩm</a><i
+            class="bi bi-chevron-right"></i>
+        <h style="color:rgb(232, 24, 84) ;">Làm thế nào để chọn túi đựng ipad hàng hiệu chuẩn thời thượng</h>
+    </div>
+
+    <!-- body new-detail -->
+    <div class="container article-wrapper">
+        <div style="margin: auto;" class="col-md-11">
+            <div class="row">
+
+                <div class="title-head">Làm thế nào để chọn túi đựng ipad hàng hiệu chuẩn thời thượng</div>
+                <h1 style="font-size: 13px;color: rgb(203, 200, 196);">Đăng bởi Nguyễn Chánh Bảo Trung vào lúc
+                    24/09/2017
+                </h1>
+                <div class="rt">
+                    <p><a href="">Túi đựng ipad</a> với thiết kế nhỏ gọn, tiện ích rất phù hợp đối với phái nam. Ngoài
+                        công
+                        dụng như đúng như tên gọi của nó thì túi còn đựng được những món đồ nhỏ xinh như ví tiền, giấy
+                        tờ,
+                        cuốn sổ nhỏ phục vụ cho cuộc họp…Do vậy, bạn đang tìm kiếm những chiếc túi đựng ipad hàng hiệu
+                        thì
+                        chúng tôi sẽ giúp bạn nhé.</p>
+
+                    <p><strong>Tên thương hiệu túi đựng ipad</strong> </p>
+                    <p> <strong>Túi đựng ipad</strong> thời trang là điều khi đi mua hàng khách hàng nào cũng hướng tới,
+                        để
+                        có một túi ipad có chất lượng thì bạn nên chú ý đến phần logo của thương hiệu sản phẩm, màu sắc
+                        logo
+                        sắc nét, bên cạnh đó bạn cũng nên chú ý đến những đường may xem sản phẩm của mình có bị rạn đứt
+                        hay
+                        không, có chắc chắn hay không? Đó là lựa chọn hàng đầu để bạn có được một chiếc <strong>túi đựng
+                            ipad đẹp</strong> nhất.
+                    <p style="text-align: center;"> <img class="col-md-10"
+                            src="Image_dalis/tui-dung-ipad-da-bo-4 (1).jpg" alt=""> </p>
+                    <p>Túi đựng ipad phong cách </p>
+                    <p>Túi đựng ipad rởm rất dễ dàng cho bạn có thể nhận biết được đó là những đường chỉ không được đẹp,
+                        thưa, dòng chữ logo sản phẩm thường được in với những font chữ khác nhau, đôi khi còn bị sai
+                        chính
+                        tả hoặc không thẳng hàng… như vậy là bạn đã có thể nhận ra được đâu là túi đựng ipad hàng hiệu
+                        và
+                        hàng fake rồi nhé. </p>
+                    <p> <strong>Túi đựng ipad có bao bọc chắc chắn</strong> </p>
+                    <p>Nhìn bề ngoài của sản phẩm bạn có thể nhận biết được đâu là túi đựng ipad thật và túi đựng ipad
+                        rởm
+                        qua bao bọc của chúng, với những chiếc ipad là da thật thì bao bì được làm một cách cẩn thận,
+                        làm
+                        bằng chất liệu tốt, không có biểu hiện một khuyết điểm nào so với những chiếc túi ipad rởm trên
+                        thị
+                        trường.
+                    <p style="text-align: center;"> <img class="col-md-10"
+                            src="Image_dalis/tui-dung-ipad-thoi-trang-4.jpg" alt=""></p>
+                    <p>Túi đựng ipad hàng chính hãng </p>
+                    <p>Bên cạnh đó, túi dựng ipad da thật còn được bọc với túi bọc tỉ mỉ kèm theo phiếu bảo hành để
+                        khách
+                        hàng có thể yên tâm sử dụng cũng như có vấn đề gì trong quá trình sử dụng, do đó mà sử dụng
+                        những
+                        chiếc túi đựng ipad thật bạn yên tâm về chất lượng cũng như quyền lợi khách hàng được đặt lên
+                        hàng
+                        đầu. </p>
+                    <p>
+                    <h2><strong>Màu sắc túi</strong></h2>
+                    </p>
+                    <p>Túi đựng ipad còn thể hiện được phong cách của người sử dụng, do vậy để có một chiếc ipad thời
+                        trang
+                        bạn cũng nên chú ý đến những màu sắc bạn yêu thích cũng như phù hợp nhất với phong cách gu thời
+                        trang của bạn. </p>
+                    <p>Để phù hợp nhất với mọi phong cách cũng như thẩm mỹ của từng người thì bạn nên lựa chọn cho mình
+                        những túi đựng ipad tối màu như màu đen, xanh than, hay nâu café cũng rất dễ phối hợp, vì không
+                        phải
+                        ngày nào bạn cũng mặc những trang phục như nhau, do vậy với cách lựa chọn này là hoàn toàn phù
+                        hợp
+                        và tinh tế. </p>
+                    <p>Để lựa chọn được một chiếc túi đựng ipad đẹp sẽ rất dễ dàng nếu như bạn áp dụng những quy tắc của
+                        chúng tôi, chắc chắn đây là những quy tắc “vàng” giúp bạn có thể lựa chọn được những chiếc túi
+                        ipad
+                        như ý muốn nhất. Chúc các bạn sở hữu cho mình những sản phẩm đẹp và hiện đại. </p>
+                    <div class="blog col-md-12">
+                        <h3>Bài viết liên quan</h3>
+                        <ul>
+                            <li><a href=""><i class="fas fa-angle-right"></i> Đôi giày nói lên điều gì về tính cách của
+                                    bạn</a>
+                            </li>
+                            <li><a href=""><i class="fas fa-angle-right"></i> 5 Kiểu túi xách nam style nhất 2017</a>
+                            </li>
+                            <li><a href=""><i class="fas fa-angle-right"></i> Tự học cách đánh xi cho giày da bóng
+                                    mới</a>
+                            </li>
+                            <li><a href=""><i class="fas fa-angle-right"></i> Cách bảo quản túi xách da luôn bền đẹp</a>
+                            </li>
+                            <li><a href=""><i class="fas fa-angle-right"></i> Bí quyết chọn thắt lưng và cách phối đồ
+                                    hoàn
+                                    hảo</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="share">Chia sẻ: <a href="">
+                        <a href=""><i class="fab fa-facebook-square"></i></a>
+                        <a href=""> <i class="fab fa-google-plus-g"></i></a>
+                    </a></div>
+            </div>
+            <!-- form  -->
+            <form class="col-md-12 form-article" action="">
+                <h3>Viết bình luận của bạn</h3>
+                <input class="col-12" type="text" placeholder="Họ tên">
+                <input class="col-12" type="email" placeholder="Email">
+                <textarea class="col-12" placeholder="Nội dung" name="" id="" rows="7"></textarea>
+            </form>
+            <div class="button-comment "><button class="col-md-1">Gửi bình luận</button></div>
+            <!-- end-form -->
+        </div>
+    </div>
+    </div>
+
+
+    <!-- end body new-detail -->
+
+
+
+
+
+
+
+    <footer>
+        <div class="contact-footer">
+            <!-- contact-footer -->
+            <div class="contact-footer-left">
+                <h4>LIÊN HỆ</h4>
+                <div style="height: 48px;">Chuyên các sản phẩm về da:ví Sen,dán trang trí,bao da,ví da cho điện thoại.
+                </div>
+                <ul>
+                    <li><a href=""><i class="bi bi-geo-alt-fill"></i> 70 Lu Gia,Ward 15,District 11,Ho Chi Minh City</a>
+                    </li>
+                    <li><a href=""><i class="bi bi-telephone-fill"></i> 1900 6750</a></li>
+                    <li><a href=""><i class="bi bi-envelope"></i> support@sapo.vn</a></li>
+                </ul>
+            </div>
+            <!--END contact-footer-left -->
+
+
+            <!-- contact-footer-right -->
+            <div class="contact-footer-right">
+                <div class="product-contact">
+                    <div class="sub-product-contact">
+                        <h4>VỀ CHÚNG TÔI</h4>
+                        <ul>
+                            <li><a href="">Trang chủ</a></li>
+                            <li><a href="">Sản phẩm</a></li>
+                            <li><a href="">Bao da</a></li>
+                            <li><a href="">Ví da & Túi xách</a></li>
+                            <li><a href="">Tạp chí</a></li>
+                            <li><a href="">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="product-contact">
+                    <div class="sub-product-contact">
+                        <h4>THÔNG TIN</h4>
+                        <ul>
+                            <li><a href="">Trang chủ</a></li>
+                            <li><a href="">Sản phẩm</a></li>
+                            <li><a href="">Bao da</a></li>
+                            <li><a href="">Ví da & Túi xách</a></li>
+                            <li><a href="">Tạp chí</a></li>
+                            <li><a href="">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="product-contact">
+                    <div class="sub-product-contact">
+                        <h4>HỖ TRỢ</h4>
+                        <ul>
+                            <li><a href="">Trang chủ</a></li>
+                            <li><a href="">Sản phẩm</a></li>
+                            <li><a href="">Bao da</a></li>
+                            <li><a href="">Ví da & Túi xách</a></li>
+                            <li><a href="">Tạp chí</a></li>
+                            <li><a href="">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="product-contact">
+                    <div class="sub-product-contact">
+                        <h4>KẾT NỐI</h4>
+                        <ul>
+                            <li><a href=""><i class="bi bi-facebook"></i> Facebook</a></li>
+                            <li><a href=""><i class="bi bi-twitter"></i> Twitter</a></li>
+                            <li><a href=""><i class="bi bi-instagram"></i> Instagram</a></li>
+                            <li><a href=""><i class="bi bi-google"></i> Google Plus</a></li>
+                            <li><a href=""><i class="bi bi-pinterest"></i> Pinterest</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+        <!-- contact-footer-right -->
+        </div>
+        <!-- END Contact-footer -->
+
+        <div class="contact-footer-bottom">
+            <div style="font-size: 12px;line-height: 32px;margin-top: 20px;" class="contact-footer-bottom-left">
+                <i class="bi bi-c-circle"></i> Bản quyền thuộc Kiền Vàng | Cung cấp bởi Sapo
+            </div>
+            <div class="contact-footer-bottom-right">
+                <ul>
+                    <li><a href=""><i class="fab fa-cc-visa"></i></a></li>
+                    <li><a href=""><i class="fab fa-cc-paypal"></i></a></li>
+                    <li><a href=""><i class="fab fa-cc-mastercard"></i></a></li>
+                    <li><a href=""><i class="fab fa-cc-discover"></i></a></li>
+                    <li><a href=""><i class="fab fa-cc-jcb"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+</body>
+
+</html>

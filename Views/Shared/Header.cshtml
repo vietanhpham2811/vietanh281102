@@ -1,0 +1,168 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using QlBanOpDaDienThoai.Models;
+@functions {
+    Net20ProjectContext db = new Net20ProjectContext();
+    public List<Category> Categories()
+    {
+        List<Category> list_record = db.Categories.Where(item => item.ParentId == 0).OrderByDescending(item => item.Id).ToList();
+        return list_record;
+    }
+}
+<div class="header">
+    <!-- top header -->
+    @{
+
+
+        <div class="top-header">
+            <div class="sub-top-header">
+                <a href=""><i class="bi bi-facebook"></i></a> <a href="">
+                    <i class="bi bi-twitter"></i>
+                </a> <a href=""><i class="bi bi-instagram"></i></a> <a href="">
+                    <i class="bi bi-google"></i>
+                    <i class="bi bi-pinterest"></i>
+                    @if (!String.IsNullOrEmpty(Context.Session.GetString("customer_name")))
+                    {
+                        <a href=""> <i class="bi bi-pinterest"></i></a>
+                        <a style="text-decoration: none;font-size: 14px;color: rgb(232, 24, 84);font-weight: bold;"
+                           href="">
+                            Xin chào @Context.Session.GetString("customer_name") 
+                        </a>
+
+                    }
+                    else
+                    {
+                        <a href="">
+                          Chào mừng bạn đến với
+                        </a>  <a style="text-decoration: none;font-size: 14px;color: rgb(232, 24, 84);font-weight: bold;"
+                                 href="">Ant Fashion. Cùng vui mua sắm</a>
+                    }
+                </a>
+
+            </div>
+        </div>
+    }
+    <!-- end top header -->
+    <!-- center-header -->
+    <div class="center-header">
+        <div class="logo-dalis"> <img src="~/LayoutBaiTap/Image_dalis/logo-dalis150x78.jpg" alt=""></div>
+
+
+        <div class="header-hotline">
+            <div class="hotline-online">
+                <div><i style="font-size: 30px; color: rgb(3, 145, 253);" class="bi bi-chat-text-fill"> </i> </div>
+                <div>
+                    Hỗ trợ trực tuyến <br> Gọi: <a href="" style="color: rgb(232, 24, 84) ;font-size: 12px;">
+                        0123
+                        456 789
+                    </a>
+                </div>
+            </div>
+
+            <div class="open-time">
+                <div><img src="~/LayoutBaiTap/Image_dalis/opentime35x35.png" alt=""></div>
+                <div style="font-size: 14px;">
+                    T2-T7 9.00 - 18.00 <br> <a style="color: rgb(198, 197, 197) ;font-size: 12px;" href="">
+                        Chủ nhật
+                        NGHỈ
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="search">
+            <input id="txtSearch" type="search" placeholder="Tìm kiếm sản phẩm " value="">
+            <button style="background-color: white; height: 44px; border: none;" onclick="location.href='/Search/SearchProducts?key='+document.getElementById('txtSearch').value;">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>
+        <div class="login">
+            <a href="">
+                <i class="bi bi-person-circle"></i>
+                <ul class="sub-login">
+                    <li>
+                        <a href="/Account/login">Đăng Nhập</a>
+                    </li>
+                    <li>
+                        <a href="/Account/register">Đăng ký</a>
+                    </li>
+                    <li>
+                        <a href="/Account/logout">Đăng xuất</a>
+                    </li>
+                </ul>
+            </a>
+
+
+
+        </div>
+
+
+    </div>
+    <!-- end-center-header -->
+    <!-- start menu -->
+    <div class="menu">
+        <div class="menu-left">
+            <ul>
+                <li><a href="/home/index">TRANG CHỦ</a></li>
+                <li class="menu-product">
+                    <a href="/products/category">SẢN PHẨM<i class="bi bi-chevron-right"></i></a>
+                    <!-- submenu -->
+                    <div class="sub-menu">
+                        <!-- <div> -->
+                        @{
+                            List<Category> list_category = Categories();
+                        }
+                        <ul class="sub-menu-left">
+                            <h4 style="font-family: Arial;">LOẠI TRANG SẢN PHẨM</h4>
+                            @foreach (var item in list_category)
+                            {
+                                <li><a href="/Products/Category/@item.Id">@item.Name</a></li>
+
+                            }
+
+
+
+                        </ul>
+
+                        <ul class="sub-menu-right">
+
+                            <h4 style="font-family: Arial;">MIẾNG DÁN DA</h4>
+
+                            <li><a href="">Bản đặc biệt</a></li>
+                            <li><a href="">Apple</a></li>
+                            <li><a href="">SamSung</a></li>
+                            <li><a href="">Blackberry</a></li>
+
+                            <li><a href="">Sony</a></li>
+                            <li><a href="">Laptop</a></li>
+                            <li><a href="">Nokia</a></li>
+                        </ul>
+                        <!-- </div> -->
+
+                    </div>
+                    <!-- end sub-menu -->
+                </li>
+                <li><a href="">BAO DA</a></li>
+
+                <li><a href="/news/index">VÍ DA & TÚI XÁCH</a></li>
+                @*<li><a href="news.html">TẠP CHÍ</a></li>*@
+                <li><a href="/WishList/index"><i class="bi bi-heart-fill"></i></a></li>
+
+                <li><a href="/contact/index">LIÊN HỆ</a></li>
+
+            </ul>
+        </div>
+        <div class="menu-right">
+            <ul>
+                <li><a href="/cart/index"><i style="font-size: 25px;" class="bi bi-cart4"></i></a> </li>
+                <li><a href="/cart/index">Giỏ Hàng</a></li>
+            </ul>
+        </div>
+
+    </div>
+    <!-- end menu -->
+</div>

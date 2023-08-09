@@ -1,0 +1,216 @@
+﻿@{
+    Layout = "~/Areas/Admin/views/shared/layout.cshtml";
+}
+@using QlBanOpDaDienThoai.Models
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+@functions {
+    public Net20ProjectContext db = new Net20ProjectContext();
+    public List<Category> GetCategories()
+    {
+        List<Category> record = db.Categories.Where(item => item.ParentId == 0).OrderByDescending(item => item.Id).ToList();
+        return record;
+    }
+    public List<Category> GetSubCategories(int category_id)
+    {
+        List<Category> record = db.Categories.Where(item => item.ParentId == category_id).OrderByDescending(item => item.Id).ToList();
+        return record;
+    }
+    public List<Tag> GetTags()
+    {
+        List<Tag> record = db.Tags.OrderByDescending(item => item.Id).ToList();
+        return record;
+    }
+    public bool CategoriesChecked(int category_id, int product_id)
+    {
+        CategoriesProduct record = db.CategoriesProducts.Where(item => item.CategoryId == category_id && item.ProductId == product_id).FirstOrDefault();
+        if (record != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public bool TagChecked(int tag_id, int product_id)
+    {
+        TagsProduct record = db.TagsProducts.Where(item => item.TagId == tag_id && item.ProductId == product_id).FirstOrDefault();
+        if (record != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+
+}
+
+<div class="row">
+    <div class="col-sm-12 col-xl-8">
+        <div class="row">
+            <div class="col-sm-12">
+
+                <div class="card">
+                    <div class="card-header pb-0">
+                        <h5>Default Form Layout</h5><span>Using the <a href="#">card</a> component, you can extend the default collapse behavior to create an accordion.</span>
+                    </div>
+                    <form method="post" enctype="multipart/form-data" autocomplete="off" action="@ViewBag.action">
+                        <div class="card-body">
+                            <div class="theme-form">
+                                <div class="mb-3">
+                                    <label class="col-form-label pt-0" for="exampleInputEmail1">Name</label>
+                                    <input class="form-control" id="exampleInputEmail1" name="name" type="text" placeholder="Enter name" value="@if(Model!=null){
+                                    <text>@Model.Name</text>
+                                    }" required>
+                                </div>
+                                @*category*@
+                                @{
+                                    List<Category> categories = GetCategories();
+                                }
+                                <div class="mb-3">
+                                    <label class="col-form-label pt-0" for="exampleInputEmail1">Categories</label>
+                                    <table class="form-control" cellpadding="5">
+                                        @foreach (var item in categories)
+                                        {
+
+                                            List<Category> categories_sub = GetSubCategories(item.Id);
+                                            <tr>
+                                                <td>
+                                                    <input name="Category" type="checkbox" value="@item.Id" placeholder="Enter name" @if (Model != null && CategoriesChecked(item.Id, Model.Id))
+                                                    {
+                                                        <text>Checked</text>
+                                                    }>
+                                                    <label for="Categroy_@item.Id">@item.Name</label>
+                                                </td>
+                                            </tr>
+                                            @foreach (var itemSub in categories_sub)
+                                            {
+                                                <tr>
+                                                    <td style="padding-left:40px">
+                                                        <input name="Category" value="@itemSub.Id" type="checkbox" @if (Model != null && CategoriesChecked(itemSub.Id, Model.Id))
+                                                        {
+                                                            <text>Checked</text>
+                                                        }>
+                                                        <label for="Categroy_@item.Id">@itemSub.Name</label>
+                                                    </td>
+                                                </tr>
+                                            }
+
+                                        }
+                                    </table>
+
+                                </div>
+                                @*category*@
+
+
+                                @*Tag*@
+                                <div class="mb-3">
+                                    <label class="col-form-label pt-0">Tags</label>
+                                    <div class="row" style="margin-top:5px;">
+                                        <div class="col-md-2">Tag</div>
+                                        <div class="col-md-10">
+
+                                            <select class="form-control multi_select" name="Tag" multiple="multiple">
+                                                @{
+                                                    List<Tag> tags = GetTags();
+                                                }
+                                                @foreach (var item in tags)
+                                                {
+                                                    <option @if (Model != null && TagChecked(item.Id, Model.Id))
+                                                    {
+                                                        <text>selected</text>
+                                                    } value="@item.Id">@item.Name</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <script>
+                                        //add thư viện select2 vào thẻ select ở trên
+                                        $(document).ready(function () {
+                                            $('.multi_select').select2();
+                                        });
+                                    </script>
+
+                                </div>
+
+                                @*Photo*@
+                                <div class="mb-3">
+                                    <label class="col-form-label pt-0" for="exampleInputEmail1">Photo</label>
+                                    <input class="form-control" name="photo" type="file">
+                                </div>
+                                @*Price*@
+                                <div class="mb-3">
+                                    <label class="col-form-label pt-0" for="exampleInputEmail1">Price</label>
+                                    <input class="form-control" name="price" type="text" value="@if(Model!=null){
+                                    <text>@Model.Price</text>
+                                    }" required>
+                                </div>
+                                @*discount*@
+                                <div class="mb-3">
+                                    <label class="col-form-label pt-0" for="exampleInputEmail1">Discount</label>
+                                    <input class="form-control" name="discount" type="text" value="@if(Model!=null){
+                                    <text>@Model.Discount</text>
+                                    }">
+                                </div>
+                                @*hot*@
+                                <div class="mb-3">
+                                    <label class="col-form-label pt-0" for="exampleInputEmail1">Hot</label>
+                                    <input name="hot" type="checkbox" @if(Model!=null){
+                                    <text>checked</text>
+                                    } >
+                                </div>
+                                @*content*@
+                                <div class="mb-3">
+                                    <label class="col-form-label pt-0" for="exampleInputEmail1">Description</label>
+                                    <textarea id="Description" name="Description">@if (Model != null)
+                                        {
+                                            <text>@Model.Description</text>
+                                        }</textarea>
+                                </div>
+                                <script>
+                                    ClassicEditor
+                                        .create(document.querySelector('#Description'))
+                                        .catch(error => {
+                                            console.error(error);
+                                        });
+                                </script>
+                                @*content*@
+                                <div class="mb-3">
+                                    <label class="col-form-label pt-0" for="exampleInputEmail1">Content</label>
+                                    <textarea id="Content" name="Content">@if (Model != null)
+                                        {
+                                            <text>@Model.Content</text>
+                                        }</textarea>
+                                </div>
+                                <script>
+                                    ClassicEditor
+                                        .create(document.querySelector('#Content'))
+                                        .catch(error => {
+                                            console.error(error);
+                                        });
+                                </script>
+
+
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button class="btn btn-secondary"> <a href="/admin/users/index">Cancel</a></button>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+

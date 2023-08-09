@@ -1,0 +1,81 @@
+﻿@{
+    Layout = "~/Areas/Admin/views/shared/layout.cshtml";
+}
+@using QlBanOpDaDienThoai.Models;
+@model QlBanOpDaDienThoai.Models.News;
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header pb-0">
+                <h5>Basic form control</h5>
+            </div>
+            <form method="post" enctype="multipart/form-data" action="@ViewBag.action" class="form theme-form">
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label class="col-sm-2 col-form-label">Adv Name</label>
+
+                            <input class="form-control" name="Name" id="exampleFormControlInput1" type="text" value="@if(Model!=null){
+                            <text>@Model.Name</text>
+                            }"  >
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="mb-3">
+                    <label class="col-form-label pt-0" for="exampleInputEmail1">Photo</label>
+                    <input class="form-control" name="photo" type="file">
+                </div>
+                <div class="mb-3">
+                    <label class="col-form-label pt-0" for="exampleInputEmail1">Hot</label>
+                    <input name="Hot" type="checkbox" @if(Model !=null) {<text>checked</text> }>
+                </div>
+
+
+                @*Description*@
+                <div class="mb-3">
+                    <label class="col-form-label pt-0" for="exampleInputEmail1">Description</label>
+                    <textarea id="Description" name="Description">@if (Model != null)
+                        {
+                            <text>@Model.Description</text>
+                        }</textarea>
+                </div>
+                <script>
+                    ClassicEditor
+                        .create(document.querySelector('#Description'))
+                        .catch(error => {
+                            console.error(error);
+                        });
+                </script>
+                @*content*@
+                <div class="mb-3">
+                    <label class="col-form-label pt-0" for="exampleInputEmail1">Content</label>
+                    <textarea id="Content" name="Content">@if (Model != null)
+                        {
+                            <text>@Model.Content</text>
+                        }</textarea>
+                </div>
+                <script>
+                    ClassicEditor
+                        .create(document.querySelector('#Content'))
+                        .catch(error => {
+                            console.error(error);
+                        });
+                </script>
+
+
+
+
+
+
+                <div class="card-footer text-end">
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                    <button class="btn btn-light"><a href="/admin/Tags/Index">Cancle</a></button>
+
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
