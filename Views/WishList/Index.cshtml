@@ -22,6 +22,10 @@
         return record;
     }
 }
+<head>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
 @if (list_wish_list != null)
 {
     <div class="cart-product">
@@ -64,4 +68,8 @@
 
 
     </div>
+}
+else
+{
+    <h2 style="color:red" class="animate__animated animate__bounceInRight">!!Chưa có sản phẩm yêu thích!!</h2>
 }
