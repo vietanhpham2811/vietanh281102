@@ -7,7 +7,10 @@
 }
 @using QlBanOpDaDienThoai.Models;
 
-
+<head>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
 <link rel="stylesheet" href="~/layoutBaiTap/cart.css">
 <div class="sub-link-product col-xs-12">
     <a href="home.html" style="color: black;font-size: 12px;">Trang chủ</a><i class="bi bi-chevron-right"></i>
@@ -34,7 +37,7 @@
                             <div class="image-prd"> <img src="~/Upload/Products/@item.ProductRecord.Photo" alt=""></div>
                             <div class="sub-product">
                                 <ul style="width: 160px;">
-                                    <li style="font-weight: bold ;">@item.ProductRecord.Name</li>
+                                    <li> <a style="font-weight: bold ;color:black" href="/Products/Detail/@item.ProductRecord.Id">@item.ProductRecord.Name</a> </li>
                                     <li style="cursor: pointer;color:rgb(232, 24, 84) ;"> <a onclick="return window.confirm('Are you sure?')" style="cursor: pointer;color:rgb(232, 24, 84) ;" href="cart/remove/@item.ProductRecord.Id">Xóa</a> </li>
                                 </ul>
 
@@ -42,7 +45,7 @@
                                     <p style="text-decoration: line-through;text-decoration-color: red; color:#8a8a8a">@item.ProductRecord.Price đ</p>
                                 </div>
                                 <div class="box-price">
-                                    <p>$@string.Format("{0:#,#.}", item.ProductRecord.Price - (item.ProductRecord.Price*item.ProductRecord.Discount)/100)đ</p>
+                                    <p>@string.Format("{0:#,#.}", item.ProductRecord.Price - (item.ProductRecord.Price*item.ProductRecord.Discount)/100)đ</p>
                                 </div>
                                 <div class="sub-quantity" style="margin-top: 13px;margin-left: 20px;">
                                    
@@ -65,14 +68,14 @@
                 <div class="cart-product-right">
                     <div style="width: 318px;" class="sub-price">
                         <h>Tạm Tính</h>
-                        <div id="sub-price">$@string.Format("{0:#,#.}", Cart.CartTotal(Context.Session))</div>
+                        <div id="sub-price">@string.Format("{0:#,#.}", Cart.CartTotal(Context.Session))đ</div>
                     </div>
 
                     <div style="width: 318px;" class="price">
                         <h>Thành Tiền</h>
                         <div id="price" style=" margin-left: 100px; font-size: 24px;
                     font-weight: bold;color:rgb(232, 24, 84) ;">
-                            $@string.Format("{0:#,#.}", Cart.CartTotal(Context.Session))
+                            @string.Format("{0:#,#.}", Cart.CartTotal(Context.Session))đ
                         </div>
                     </div>
 
@@ -85,22 +88,33 @@
                             <a onclick="return window.confirm('Xóa tất cả các sản phẩm trong giỏ hàng của bạn')" href="/Cart/Destroy">Xóa hết Sp</a>
                         </button>
                     </div>
-                    <button class="pay">  <a href="/cart/checkout">THANH TOÁN NGAY</a></button>
+                    <button class="pay">  <a href="/cart/checkout">ĐẶT HÀNG NGAY</a></button>
 
 
-                    <button class="pay"> <a href="/products/category">TIẾP TỤC MUA HÀNG</a> </button>
+                    <button  class="pay"> <a href="/products/category">TIẾP TỤC MUA HÀNG</a> </button>
                 </div>
             }
+           
 
             <!-- cart-product-right -->
 
         </div>
+    }
+    else
+    {
+        <h2 style="color:red" class="animate__animated animate__bounceInRight">!!Giỏ hàng trống!!Nhanh tay đặt hàng nào bạn ơi</h2>
+
     }
 
     <!-- cart-product -->
 
 </div>
 <script>
+
+    function FunctionOrder() {
+        alert("Đon hàng của bạn đã được đặt thành công.");
+        }
+
     $(document).ready(function () {
         $("#btnAdd").click(function () {
             var soluong = $("#quantity").val();

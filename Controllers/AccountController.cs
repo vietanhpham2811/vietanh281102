@@ -55,6 +55,41 @@ namespace QlBanOpDaDienThoai.Controllers
             return Redirect("/home/index");
 
         }
+        public IActionResult Register()
+        {
+            return View();
+        }
+        //khi an nut dang ky
+        [HttpPost]
+        public IActionResult RegisterPost(IFormCollection fc)
+        {
+            string _name = fc["name"];
+            string _email = fc["email"];
+            string _phone = fc["phone"];
+            string _address = fc["address"];
+            string _password = fc["password"];
+            //ma hoa password
+            _password = BC.HashPassword(_password);
+            //kiem tra xem email da ton tai trong table customers chua, neu chua thi moi cho insert du lieu vao
+            int checkMail = db.Customers.Where(item => item.Email == _email).Count();
+            if (checkMail == 0)
+            {
+                Customer record = new Customer();
+                record.Name = _name;
+                record.Email = _email;
+                record.Phone = _phone;
+                record.Address = _address;
+                record.Password = _password;
+                //---
+                db.Customers.Add(record);
+                db.SaveChanges();
+            }
+            else
+            {
+                return Redirect("/Account/Register?notify=exists");
+            }
+            return Redirect("/Account/Login?notify=register-success");
+        }
         public IActionResult logout()
         {
             HttpContext.Session.Remove("customer_name");
