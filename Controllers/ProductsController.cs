@@ -56,6 +56,7 @@ namespace QlBanOpDaDienThoai.Controllers
                     break;
 
             }
+            ViewBag.Orderby = orderby;    
             //---
             //gọi view có phân trang
             return View(products.ToPagedList(pageNumber, pageSize));

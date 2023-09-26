@@ -22,6 +22,8 @@ namespace QlBanOpDaDienThoai.Areas.Admin.Controllers
     public class SlidesController : Controller
     {
         Net20ProjectContext db = new Net20ProjectContext();
+        [AdminAuthorize(idFunction = 1)]
+
         public IActionResult Index(int? p)
         {
             int pageNumber = p ?? 1;
@@ -36,6 +38,8 @@ namespace QlBanOpDaDienThoai.Areas.Admin.Controllers
             ViewBag.action = "/admin/Slides/updatepost/" + id;
             return View("FormCreateUpdate", record);
         }
+        [AdminAuthorize(idFunction = 3)]
+
         public IActionResult UpdatePost(int? id ,IFormCollection fc)
         {
             Slide record = db.Slides.Where(item => item.Id == id).FirstOrDefault();
@@ -86,6 +90,8 @@ namespace QlBanOpDaDienThoai.Areas.Admin.Controllers
             return View("FormCreateUpdate");
 
         }
+        [AdminAuthorize(idFunction = 2)]
+
         public IActionResult CreatePost(IFormCollection fc)
         {
             Slide record = new Slide();
@@ -131,6 +137,8 @@ namespace QlBanOpDaDienThoai.Areas.Admin.Controllers
             db.SaveChanges();
             return RedirectToAction("index", "Slides");
         }
+        [AdminAuthorize(idFunction = 4)]
+
         public IActionResult Delete(int? id)
         {
             Slide record= db.Slides.Where(item=>item.Id==id).FirstOrDefault();

@@ -1,12 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using QlBanOpDaDienThoai.Areas.Admin.Attributes;
 using QlBanOpDaDienThoai.Models;
-
+using System.IO;
+using X.PagedList;
 namespace QlBanOpDaDienThoai.Areas.Admin.Controllers
 {
-    [Area("Admin")]
-    [CheckLogin]
-    public class HomeController : Controller
+    public class PermissionsController : Controller
     {
         public IActionResult Index()
         {

@@ -1,0 +1,67 @@
+﻿@{
+    Layout = "/Areas/Admin/Views/shared/layout.cshtml";
+}
+@using QlBanOpDaDienThoai.Models
+@using X.PagedList.Mvc.Core
+@using System.IO
+@model X.PagedList.IPagedList<Menu>
+
+    
+<div class="col-sm-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>Both Bordeds</h5><span>Example of <code>horizontal</code> table borders. This is a default table border style attached to <code> .table</code> class.All borders have the same grey color and style, table itself doesn't have a border, but you can add this border using<code> .table-bordered</code>class added to the table with <code>.table</code>class.</span>
+            <button class="btn btn-pill btn-primary"><a class="createusers" style="color:white;" href="/admin/Menus/Create">Tạo mới</a>  </button>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead style="background-color: cadetblue;">
+                    <tr>
+                        <th style="width:500px" scope="col">Name</th>
+                        <td>Controller</td>
+                        <td>Link</td>
+                        <td>Arrange</td>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>@item.Name</td>
+                            <td>@item.ControllerName</td>
+                            <td>@item.Link</td>
+                            <td>@item.Arrange</td>
+
+                            <td style="text-align:center">
+                                <button class="btn btn-primary btn-xs" type="button" data-original-title="btn btn-danger btn-xs" title=""> <a style="color: white;" href="/Admin/Menus/Update/@item.Id">Edit</a> </button>
+                            </td>
+                            <td style="text-align:center">
+                                <button class="btn btn-danger btn-xs" type="button" data-original-title="btn btn-danger btn-xs" title=""><a style="color: white;" onclick="return window.confirm('Bạn có muốn xóa sản phẩm này không?')" href="/admin/Menus/delete/@item.Id">Delete</a></button>
+                            </td>
+
+
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+        <a class="paginate_button " aria-controls="basic-1" data-dt-idx="2" tabindex="0" data-bs-original-title="" title="">@Html.PagedListPager(Model,p=>Url.Action("index","Advs",new {p}))</a>
+
+    </div>
+</div>
+<style>
+    .pagination li {
+        border: 1px solid green;
+        border-radius: 15px;
+        width: 22px;
+        text-align: center;
+        margin: 5px
+    }
+</style>

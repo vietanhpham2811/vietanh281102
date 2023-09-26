@@ -1,8 +1,18 @@
 ﻿@{
     Layout = "~/Areas/Admin/views/shared/layout.cshtml";
 }
-@model QlBanOpDaDienThoai.Models.User;
 
+@model QlBanOpDaDienThoai.Models.User;
+@using QlBanOpDaDienThoai.Models;
+@functions{
+    Net20ProjectContext db =new
+    Net20ProjectContext();
+    public int CheckPer(int idUser,int idFunction)
+    {
+        var record = db.Permissions.Where(item => item.IdUser == idUser && item.IdFunction == idFunction).Count();
+        return record;
+    }
+}
         <div class="row">
             <div class="col-sm-12 col-xl-6">
                 <div class="row">
@@ -40,10 +50,45 @@
                                             }>
                                             
                                         </div>
-                                        <div class="checkbox p-0">
-                                            <input id="dafault-checkbox" type="checkbox">
-                                            <label class="mb-0" for="dafault-checkbox">Remember my preference</label>
-                                        </div>
+                                       
+                                <div class="row" style="margin-top:5px;">
+                                    <div class="col-md-2">Permission</div>
+                                    <div class="col-md-10">
+                                       
+                                            <div>
+                                                <input name="Permission" type="checkbox" value="1" placeholder="Enter name" @if(CheckPer(Model.Id, 1) > 0 )
+                                                {
+                                                    <text>checked</text>
+                                                }
+                                                <label >Danh Sách</label>
+                                            </div>
+                                            <div>
+                                            <input name="Permission" type="checkbox" value="2" placeholder="Enter name" @if (CheckPer(Model.Id, 2) > 0)
+                                                {
+                                                    <text>checked</text>
+                                                }
+                                                <label>Quyền Thêm</label>
+                                            </div>
+                                            <div>
+                                            <input name="Permission" type="checkbox" value="3" placeholder="Enter name" @if (CheckPer(Model.Id, 3) > 0)
+                                                {
+                                                    <text>checked</text>
+                                                }
+                                                <label>Quyền Sửa</label>
+                                            </div>
+                                            <div>
+                                            <input name="Permission" type="checkbox" value="4" placeholder="Enter name" @if (CheckPer(Model.Id, 4) > 0)
+                                                {
+                                                    <text>checked</text>
+                                                }
+                                                <label>Quyền Xóa</label>
+                                            </div>
+                                      
+
+                                       
+                                    </div>
+                                </div>
+
                                     </div>
                                 </div>
                                 <div class="card-footer">

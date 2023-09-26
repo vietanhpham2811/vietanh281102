@@ -8,6 +8,7 @@ namespace QlBanOpDaDienThoai.Areas.Admin.Controllers
     public class AccountController : Controller
     {
         public Net20ProjectContext db= new Net20ProjectContext();
+       
         public IActionResult Login()
         {
             return View();
@@ -18,11 +19,15 @@ namespace QlBanOpDaDienThoai.Areas.Admin.Controllers
             string email = fc["email"].ToString().Trim();
             string password = fc["password"].ToString().Trim();
             User record = db.Users.Where(item => item.Email == email).FirstOrDefault();
+            int idRecord = record.Id;
             if (record != null) {
                 if (record.Password==password)
                 {
                     //Tạo session email
                     HttpContext.Session.SetString("email", email);
+                    HttpContext.Session.SetInt32("id",idRecord);
+                
+
                     //đăng nhập thành công
                     return Redirect("/Admin/Home/index");
                 }

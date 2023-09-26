@@ -12,6 +12,7 @@ namespace QlBanOpDaDienThoai.Areas.Admin.Controllers
     {
 
         Net20ProjectContext db = new Net20ProjectContext();
+        [AdminAuthorize(idFunction = 1)]
 
         public IActionResult Index(int? p)
         {
@@ -28,6 +29,8 @@ namespace QlBanOpDaDienThoai.Areas.Admin.Controllers
             return View("FormCreateUpdate", record);
 
         }
+        [AdminAuthorize(idFunction = 3)]
+
         public IActionResult UpdatePost(int? id, IFormCollection fc)
         {
             Category record = db.Categories.Where(item => item.Id == id).FirstOrDefault();
@@ -50,6 +53,8 @@ namespace QlBanOpDaDienThoai.Areas.Admin.Controllers
             ViewBag.action = "/admin/categories/createpost";
             return View("FormCreateUpdate");
         }
+        [AdminAuthorize(idFunction = 2)]
+
         public IActionResult CreatePost(IFormCollection fc)
         {
             Category record = new Category();
@@ -63,6 +68,8 @@ namespace QlBanOpDaDienThoai.Areas.Admin.Controllers
             db.SaveChanges();
             return RedirectToAction("index", "categories");
         }
+        [AdminAuthorize(idFunction = 4)]
+
         public IActionResult Delete(int? id)
         {
             Category record = db.Categories.Where(item => item.Id == id).FirstOrDefault();

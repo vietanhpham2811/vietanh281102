@@ -1,14 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using QlBanOpDaDienThoai.Areas.Admin.Attributes;
-using QlBanOpDaDienThoai.Models;
 
 namespace QlBanOpDaDienThoai.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    [Area("admin")]
     [CheckLogin]
-    public class HomeController : Controller
+    public class ErrorController : Controller
     {
-        public IActionResult Index()
+        public IActionResult errorPermission()
         {
             return View();
         }
