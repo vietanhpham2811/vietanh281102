@@ -202,7 +202,9 @@ b{
 .menu-left>ul>li:hover {
     background-color: rgb(240, 235, 235);
 }
-
+.active {
+    color: rgb(232, 24, 84);
+}
 .menu-left>ul>li>a:hover {
     color: rgb(232, 24, 84);
 }
@@ -875,7 +877,11 @@ body {
   height: 100%;
   object-fit: cover;
 }
-/* slide */
+ 
 
 
 /* hover */
+
+
+
+

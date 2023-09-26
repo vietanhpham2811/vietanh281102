@@ -76,8 +76,8 @@ s0.parentNode.insertBefore(s1,s0);
     <!-- start header -->
     <div class="header">
         <!-- top header -->
-        <div class="top-header">
-            <div class="sub-top-header"><a href=""><i class="bi bi-facebook"></i></a> <a href=""><i
+        <div style="width:100%;background-color:#938cb7" class="top-header">
+            <div  style="line-height:27px" class="sub-top-header"><a href=""><i class="bi bi-facebook"></i></a> <a href=""><i
                         class="bi bi-twitter"></i></a> <a href=""><i class="bi bi-instagram"></i></a> <a href=""> <i
                         class="bi bi-google"></i></a> <a href=""> <i class="bi bi-pinterest"></i></a> Chào mừng bạn đến
                 với <a style="text-decoration: none;font-size: 14px;color: rgb(232, 24, 84);font-weight: bold;"
@@ -180,12 +180,28 @@ s0.parentNode.insertBefore(s1,s0);
 
                 </ul>
             </div>
-            <div class="menu-right">
-                <ul>
-                    <li><a href="/cart/index"><i style="font-size: 25px;" class="bi bi-cart4"></i></a> </li>
-                    <li><a href="/cart/index">Giỏ Hàng</a></li>
-                </ul>
-            </div>
+           <div class="menu-right">
+            <ul style="position:relative;">
+                <li><a href="/cart/index"><i style="font-size: 25px;" class="bi bi-cart4"></i></a> </li>
+
+                <li><a href="/cart/index">Giỏ Hàng</a></li>
+
+                <li>
+                    <div style="position: absolute;
+    top: -9px;
+    right: 15px;
+    border: 1px solid;
+    border-radius: 10px;
+    width: 30px;
+    text-align: center;
+    background-color: #938cb7;
+    color: white;
+    font-family: serif;">
+                        @Cart.CartQuantity(Context.Session)
+                    </div>
+                </li>
+            </ul>
+        </div>
 
         </div>
         <!-- end menu -->
